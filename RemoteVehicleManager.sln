@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteVehicleManager", "RemoteVehicleManager.csproj", "{2BE4E9CD-2438-4454-A11E-C53B8855A776}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BE4E9CD-2438-4454-A11E-C53B8855A776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE4E9CD-2438-4454-A11E-C53B8855A776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE4E9CD-2438-4454-A11E-C53B8855A776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE4E9CD-2438-4454-A11E-C53B8855A776}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DB4183E-37AC-48C0-965F-5FEDC6EA2B5A}
+	EndGlobalSection
+EndGlobal
