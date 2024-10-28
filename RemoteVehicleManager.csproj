@@ -46,14 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DriversControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DriversControl.Designer.cs">
+      <DependentUpon>DriversControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeControl.Designer.cs">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainUIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainUIForm.Designer.cs">
+      <DependentUpon>MainUIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DriversControl.resx">
+      <DependentUpon>DriversControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeControl.resx">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainUIForm.resx">
+      <DependentUpon>MainUIForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +83,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +97,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bell-ring.png" />
+    <Content Include="Resources\bell-slash.png" />
+    <Content Include="Resources\car.png" />
+    <Content Include="Resources\cowbell.png" />
+    <Content Include="Resources\cross.png" />
+    <Content Include="Resources\down.png" />
+    <Content Include="Resources\house-chimney.png" />
+    <Content Include="Resources\lock-open-alt.png" />
+    <Content Include="Resources\lock.png" />
+    <Content Include="Resources\marker.png" />
+    <Content Include="Resources\power.png" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\settings.png" />
+    <Content Include="Resources\time-past.png" />
+    <Content Include="Resources\up.png" />
+    <Content Include="Resources\user.png" />
+    <Content Include="Resources\wrench-alt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

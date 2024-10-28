@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RemoteVehicleManager
 {
-    public partial class Form1 : Form
+    public partial class HomeControl : UserControl
     {
-        public Form1()
+        public HomeControl()
         {
             InitializeComponent();
         }
