@@ -103,6 +103,7 @@
     <Content Include="Resources\bell-slash.png" />
     <Content Include="Resources\car.png" />
     <Content Include="Resources\cowbell.png" />
+    <Content Include="Resources\cross-small.png" />
     <Content Include="Resources\cross.png" />
     <Content Include="Resources\down.png" />
     <Content Include="Resources\house-chimney.png" />
