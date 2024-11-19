@@ -57,7 +57,6 @@
             this.btnActivateAlarm = new System.Windows.Forms.Button();
             this.lblEngine = new System.Windows.Forms.Label();
             this.btnStopEngine = new System.Windows.Forms.Button();
-            this.imageList4 = new System.Windows.Forms.ImageList(this.components);
             this.btnStartEngine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -510,13 +509,6 @@
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStopEngine.UseVisualStyleBackColor = true;
             // 
-            // imageList4
-            // 
-            this.imageList4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList4.ImageStream")));
-            this.imageList4.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList4.Images.SetKeyName(0, "cross-small.png");
-            this.imageList4.Images.SetKeyName(1, "cross.png");
-            // 
             // btnStartEngine
             // 
             this.btnStartEngine.AutoSize = true;
@@ -644,7 +636,6 @@
         private System.Windows.Forms.Label lblCurrentDate;
         private System.Windows.Forms.Panel MainContent;
         private System.Windows.Forms.Panel HorizontalBar;
-        private System.Windows.Forms.ImageList imageList4;
         private System.Windows.Forms.Button btnCloseWindows;
         private System.Windows.Forms.Button btnOpenWindows;
         private System.Windows.Forms.Label lblWindows;
