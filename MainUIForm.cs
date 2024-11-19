@@ -50,39 +50,72 @@ namespace RemoteVehicleManager
 
         }
 
+        // Loads Home tab on click
         private void home_tab_Click(object sender, EventArgs e)
         {
+            HighlightActiveButton((Button)sender);
             LoadControl(new HomeControl());
         }
 
+        // Loads Drivers tab on click
         private void drivers_tab_Click(object sender, EventArgs e)
         {
+            HighlightActiveButton((Button)sender); 
             LoadControl(new DriversControl());
         }
 
+        // Loads Vehicles tab on click
         private void vehicles_tab_Click(object sender, EventArgs e)
         {
-
+            HighlightActiveButton((Button)sender); 
+            LoadControl(new VehiclesControl());
         }
 
+        // Loads GPS tab on click
         private void gps_tab_Click(object sender, EventArgs e)
         {
-
+            HighlightActiveButton((Button)sender); 
+            LoadControl(new GPSControl());
         }
 
+        // Loads Alerts tab on click
         private void alerts_tab_Click(object sender, EventArgs e)
         {
-
+            HighlightActiveButton((Button)sender); 
+            LoadControl(new AlertsControl());
         }
 
+        // Loads History tab on click
         private void history_tab_Click(object sender, EventArgs e)
         {
-
+            HighlightActiveButton((Button)sender); 
+            LoadControl(new HistoryControl());
         }
 
+        // Loads Settings tab on click
         private void settings_tab_Click(object sender, EventArgs e)
         {
+            HighlightActiveButton((Button)sender); 
+            LoadControl(new SettingsControl());
+        }
 
+        private void HighlightActiveButton(Button activeButton)
+        {
+            // Reset all buttons appearances
+            foreach (Control control in SidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.BackColor = SystemColors.Control;
+                    button.ForeColor = SystemColors.ControlText;
+                    button.FlatStyle = FlatStyle.Flat;
+                }
+            }
+
+            // Highlight active button
+            activeButton.BackColor = Color.DarkCyan;
+            activeButton.ForeColor = Color.White;
+            activeButton.FlatStyle = FlatStyle.Standard;
         }
     }
 }

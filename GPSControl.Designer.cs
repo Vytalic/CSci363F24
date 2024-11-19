@@ -1,6 +1,6 @@
 ﻿namespace RemoteVehicleManager
 {
-    partial class DriversControl
+    partial class GPSControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,18 +34,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(416, 213);
+            this.label1.Location = new System.Drawing.Point(426, 211);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Drivers";
+            this.label1.Text = "GPS";
             // 
-            // DriversControl
+            // GPSControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Name = "DriversControl";
+            this.Name = "GPSControl";
             this.Size = new System.Drawing.Size(853, 457);
             this.ResumeLayout(false);
             this.PerformLayout();

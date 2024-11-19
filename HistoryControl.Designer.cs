@@ -1,6 +1,6 @@
 ﻿namespace RemoteVehicleManager
 {
-    partial class DriversControl
+    partial class HistoryControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,18 +34,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(416, 213);
+            this.label1.Location = new System.Drawing.Point(396, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Drivers";
+            this.label1.Text = "History";
             // 
-            // DriversControl
+            // HistoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Name = "DriversControl";
+            this.Name = "HistoryControl";
             this.Size = new System.Drawing.Size(853, 457);
             this.ResumeLayout(false);
             this.PerformLayout();
