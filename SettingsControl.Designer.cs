@@ -35,12 +35,12 @@
             this.lblTimeFormat = new System.Windows.Forms.Label();
             this.lblUpdateFrequency = new System.Windows.Forms.Label();
             this.lblVibration = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbFontSize = new System.Windows.Forms.ComboBox();
+            this.cbTemperature = new System.Windows.Forms.ComboBox();
+            this.cbTheme = new System.Windows.Forms.ComboBox();
+            this.cbTimeFormat = new System.Windows.Forms.ComboBox();
+            this.cbUpdateFrequency = new System.Windows.Forms.ComboBox();
+            this.cbVibration = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblSettings
@@ -113,78 +113,104 @@
             this.lblVibration.TabIndex = 6;
             this.lblVibration.Text = "Vibration Feedback:";
             // 
-            // comboBox1
+            // cbFontSize
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(206, 143);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbFontSize.BackColor = System.Drawing.Color.LightGray;
+            this.cbFontSize.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cbFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFontSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFontSize.FormattingEnabled = true;
+            this.cbFontSize.Items.AddRange(new object[] {
+            "Small",
+            "Medium",
+            "Large"});
+            this.cbFontSize.Location = new System.Drawing.Point(206, 143);
+            this.cbFontSize.Name = "cbFontSize";
+            this.cbFontSize.Size = new System.Drawing.Size(121, 24);
+            this.cbFontSize.TabIndex = 7;
             // 
-            // comboBox2
+            // cbTemperature
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(206, 231);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 8;
+            this.cbTemperature.BackColor = System.Drawing.Color.LightGray;
+            this.cbTemperature.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTemperature.FormattingEnabled = true;
+            this.cbTemperature.Items.AddRange(new object[] {
+            "Fahrenheit",
+            "Celsius"});
+            this.cbTemperature.Location = new System.Drawing.Point(206, 231);
+            this.cbTemperature.Name = "cbTemperature";
+            this.cbTemperature.Size = new System.Drawing.Size(121, 24);
+            this.cbTemperature.TabIndex = 8;
             // 
-            // comboBox3
+            // cbTheme
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(206, 324);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 9;
+            this.cbTheme.BackColor = System.Drawing.Color.LightGray;
+            this.cbTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTheme.FormattingEnabled = true;
+            this.cbTheme.Items.AddRange(new object[] {
+            "Light",
+            "Dark"});
+            this.cbTheme.Location = new System.Drawing.Point(206, 324);
+            this.cbTheme.Name = "cbTheme";
+            this.cbTheme.Size = new System.Drawing.Size(121, 24);
+            this.cbTheme.TabIndex = 9;
             // 
-            // comboBox4
+            // cbTimeFormat
             // 
-            this.comboBox4.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(627, 143);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 10;
+            this.cbTimeFormat.BackColor = System.Drawing.Color.LightGray;
+            this.cbTimeFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTimeFormat.FormattingEnabled = true;
+            this.cbTimeFormat.Items.AddRange(new object[] {
+            "12-Hour",
+            "24-Hour"});
+            this.cbTimeFormat.Location = new System.Drawing.Point(627, 143);
+            this.cbTimeFormat.Name = "cbTimeFormat";
+            this.cbTimeFormat.Size = new System.Drawing.Size(121, 24);
+            this.cbTimeFormat.TabIndex = 10;
             // 
-            // comboBox5
+            // cbUpdateFrequency
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(627, 231);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 11;
+            this.cbUpdateFrequency.BackColor = System.Drawing.Color.LightGray;
+            this.cbUpdateFrequency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUpdateFrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUpdateFrequency.FormattingEnabled = true;
+            this.cbUpdateFrequency.Items.AddRange(new object[] {
+            "Daily",
+            "Weekly",
+            "Monthly"});
+            this.cbUpdateFrequency.Location = new System.Drawing.Point(627, 231);
+            this.cbUpdateFrequency.Name = "cbUpdateFrequency";
+            this.cbUpdateFrequency.Size = new System.Drawing.Size(121, 24);
+            this.cbUpdateFrequency.TabIndex = 11;
             // 
-            // comboBox6
+            // cbVibration
             // 
-            this.comboBox6.BackColor = System.Drawing.Color.DimGray;
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(627, 326);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 12;
+            this.cbVibration.BackColor = System.Drawing.Color.LightGray;
+            this.cbVibration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVibration.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVibration.FormattingEnabled = true;
+            this.cbVibration.Items.AddRange(new object[] {
+            "On",
+            "Off"});
+            this.cbVibration.Location = new System.Drawing.Point(627, 326);
+            this.cbVibration.Name = "cbVibration";
+            this.cbVibration.Size = new System.Drawing.Size(121, 24);
+            this.cbVibration.TabIndex = 12;
             // 
             // SettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.Controls.Add(this.comboBox6);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbVibration);
+            this.Controls.Add(this.cbUpdateFrequency);
+            this.Controls.Add(this.cbTimeFormat);
+            this.Controls.Add(this.cbTheme);
+            this.Controls.Add(this.cbTemperature);
+            this.Controls.Add(this.cbFontSize);
             this.Controls.Add(this.lblVibration);
             this.Controls.Add(this.lblUpdateFrequency);
             this.Controls.Add(this.lblTimeFormat);
@@ -208,11 +234,11 @@
         private System.Windows.Forms.Label lblTimeFormat;
         private System.Windows.Forms.Label lblUpdateFrequency;
         private System.Windows.Forms.Label lblVibration;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbFontSize;
+        private System.Windows.Forms.ComboBox cbTemperature;
+        private System.Windows.Forms.ComboBox cbTheme;
+        private System.Windows.Forms.ComboBox cbTimeFormat;
+        private System.Windows.Forms.ComboBox cbUpdateFrequency;
+        private System.Windows.Forms.ComboBox cbVibration;
     }
 }
