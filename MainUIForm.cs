@@ -54,7 +54,7 @@ namespace RemoteVehicleManager
         }
 
         // Loads Home tab on click
-        private void home_tab_Click(object sender, EventArgs e)
+        public void home_tab_Click(object sender, EventArgs e)
         {
             HighlightActiveButton((Button)sender);
             LoadControl(new HomeControl());
@@ -112,7 +112,7 @@ namespace RemoteVehicleManager
             // Reset all buttons appearances
             foreach (Control control in SidePanel.Controls)
             {
-                if (control is Button button)
+                if (control is Button button && button.Name != "btnTest")
                 {
                     button.BackColor = Color.LightSkyBlue;
                     button.ForeColor = SystemColors.ControlText;
@@ -177,6 +177,11 @@ namespace RemoteVehicleManager
             return alerts;
         }
 
-
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            // Create and show the simulation screen
+            TestForm testForm = new TestForm(this);
+            testForm.Show();
+        }
     }
 }

@@ -89,7 +89,7 @@
             // 
             this.lblWhat.AutoSize = true;
             this.lblWhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWhat.Location = new System.Drawing.Point(401, 89);
+            this.lblWhat.Location = new System.Drawing.Point(407, 89);
             this.lblWhat.Name = "lblWhat";
             this.lblWhat.Size = new System.Drawing.Size(79, 25);
             this.lblWhat.TabIndex = 4;

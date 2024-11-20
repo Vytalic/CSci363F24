@@ -33,6 +33,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.SidePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.home_tab = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.drivers_tab = new System.Windows.Forms.Button();
             this.vehicles_tab = new System.Windows.Forms.Button();
             this.gps_tab = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.MainContent = new System.Windows.Forms.Panel();
             this.btnCloseWindows = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnOpenWindows = new System.Windows.Forms.Button();
             this.lblWindows = new System.Windows.Forms.Label();
             this.btnUnlockDoor = new System.Windows.Forms.Button();
@@ -57,14 +59,13 @@
             this.btnActivateAlarm = new System.Windows.Forms.Button();
             this.lblEngine = new System.Windows.Forms.Label();
             this.btnStopEngine = new System.Windows.Forms.Button();
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.btnStartEngine = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.VerticalBar = new System.Windows.Forms.Splitter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.btnTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -111,11 +112,12 @@
             this.SidePanel.Controls.Add(this.alerts_tab);
             this.SidePanel.Controls.Add(this.history_tab);
             this.SidePanel.Controls.Add(this.settings_tab);
+            this.SidePanel.Controls.Add(this.btnTest);
             this.SidePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.SidePanel.Location = new System.Drawing.Point(0, 0);
+            this.SidePanel.Location = new System.Drawing.Point(0, -16);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Padding = new System.Windows.Forms.Padding(0, 55, 0, 0);
-            this.SidePanel.Size = new System.Drawing.Size(152, 561);
+            this.SidePanel.Size = new System.Drawing.Size(152, 577);
             this.SidePanel.TabIndex = 0;
             this.SidePanel.WrapContents = false;
             // 
@@ -140,6 +142,18 @@
             this.home_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.home_tab.UseVisualStyleBackColor = false;
             this.home_tab.Click += new System.EventHandler(this.home_tab_Click);
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "car.png");
+            this.imageList2.Images.SetKeyName(1, "cowbell.png");
+            this.imageList2.Images.SetKeyName(2, "house-chimney.png");
+            this.imageList2.Images.SetKeyName(3, "marker.png");
+            this.imageList2.Images.SetKeyName(4, "settings.png");
+            this.imageList2.Images.SetKeyName(5, "time-past.png");
+            this.imageList2.Images.SetKeyName(6, "user.png");
             // 
             // drivers_tab
             // 
@@ -325,10 +339,10 @@
             // lblCurrentTime
             // 
             this.lblCurrentTime.AutoSize = true;
-            this.lblCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentTime.Location = new System.Drawing.Point(377, 29);
+            this.lblCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentTime.Location = new System.Drawing.Point(316, 45);
             this.lblCurrentTime.Name = "lblCurrentTime";
-            this.lblCurrentTime.Size = new System.Drawing.Size(154, 29);
+            this.lblCurrentTime.Size = new System.Drawing.Size(220, 39);
             this.lblCurrentTime.TabIndex = 1;
             this.lblCurrentTime.Text = "Current Time";
             this.lblCurrentTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -336,10 +350,10 @@
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
-            this.lblCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentDate.Location = new System.Drawing.Point(378, 9);
+            this.lblCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentDate.Location = new System.Drawing.Point(306, 9);
             this.lblCurrentDate.Name = "lblCurrentDate";
-            this.lblCurrentDate.Size = new System.Drawing.Size(101, 20);
+            this.lblCurrentDate.Size = new System.Drawing.Size(148, 29);
             this.lblCurrentDate.TabIndex = 0;
             this.lblCurrentDate.Text = "Current Date";
             this.lblCurrentDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,6 +396,18 @@
             this.btnCloseWindows.Text = "Close";
             this.btnCloseWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCloseWindows.UseVisualStyleBackColor = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "bell-ring.png");
+            this.imageList1.Images.SetKeyName(1, "bell-slash.png");
+            this.imageList1.Images.SetKeyName(2, "down.png");
+            this.imageList1.Images.SetKeyName(3, "lock.png");
+            this.imageList1.Images.SetKeyName(4, "lock-open-alt.png");
+            this.imageList1.Images.SetKeyName(5, "power.png");
+            this.imageList1.Images.SetKeyName(6, "up.png");
             // 
             // btnOpenWindows
             // 
@@ -527,6 +553,12 @@
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStopEngine.UseVisualStyleBackColor = false;
             // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "cross.png");
+            // 
             // btnStartEngine
             // 
             this.btnStartEngine.AutoSize = true;
@@ -576,35 +608,18 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             // 
-            // imageList2
+            // btnTest
             // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "car.png");
-            this.imageList2.Images.SetKeyName(1, "cowbell.png");
-            this.imageList2.Images.SetKeyName(2, "house-chimney.png");
-            this.imageList2.Images.SetKeyName(3, "marker.png");
-            this.imageList2.Images.SetKeyName(4, "settings.png");
-            this.imageList2.Images.SetKeyName(5, "time-past.png");
-            this.imageList2.Images.SetKeyName(6, "user.png");
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "bell-ring.png");
-            this.imageList1.Images.SetKeyName(1, "bell-slash.png");
-            this.imageList1.Images.SetKeyName(2, "down.png");
-            this.imageList1.Images.SetKeyName(3, "lock.png");
-            this.imageList1.Images.SetKeyName(4, "lock-open-alt.png");
-            this.imageList1.Images.SetKeyName(5, "power.png");
-            this.imageList1.Images.SetKeyName(6, "up.png");
-            // 
-            // imageList3
-            // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "cross.png");
+            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTest.Location = new System.Drawing.Point(10, 548);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(132, 26);
+            this.btnTest.TabIndex = 7;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // MainUIForm
             // 
@@ -672,6 +687,7 @@
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList3;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
