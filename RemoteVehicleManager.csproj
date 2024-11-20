@@ -52,6 +52,7 @@
     <Compile Include="AlertsControl.Designer.cs">
       <DependentUpon>AlertsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlertsManager.cs" />
     <Compile Include="DriversControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,9 +155,11 @@
     <Content Include="Resources\lock-open-alt.png" />
     <Content Include="Resources\lock.png" />
     <Content Include="Resources\marker.png" />
+    <Resource Include="Resources\octagon-exclamation.png" />
     <Content Include="Resources\power.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\time-past.png" />
+    <Resource Include="Resources\triangle-warning.png" />
     <Content Include="Resources\up.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
