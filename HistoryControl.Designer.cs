@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHistory = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblHistory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(396, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "History";
+            this.lblHistory.AutoSize = true;
+            this.lblHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHistory.Location = new System.Drawing.Point(609, 0);
+            this.lblHistory.Name = "lblHistory";
+            this.lblHistory.Size = new System.Drawing.Size(244, 55);
+            this.lblHistory.TabIndex = 0;
+            this.lblHistory.Text = "HISTORY";
             // 
             // HistoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.lblHistory);
             this.Name = "HistoryControl";
             this.Size = new System.Drawing.Size(853, 457);
             this.ResumeLayout(false);
@@ -54,6 +56,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHistory;
     }
 }

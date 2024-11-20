@@ -81,6 +81,7 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.DarkGray;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -102,6 +103,7 @@
             this.SidePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanel.AutoSize = true;
+            this.SidePanel.BackColor = System.Drawing.Color.DarkGray;
             this.SidePanel.Controls.Add(this.home_tab);
             this.SidePanel.Controls.Add(this.drivers_tab);
             this.SidePanel.Controls.Add(this.vehicles_tab);
@@ -120,6 +122,7 @@
             // home_tab
             // 
             this.home_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.home_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.home_tab.FlatAppearance.BorderSize = 2;
             this.home_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.home_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,12 +138,13 @@
             this.home_tab.Text = "  Home";
             this.home_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.home_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.home_tab.UseVisualStyleBackColor = true;
+            this.home_tab.UseVisualStyleBackColor = false;
             this.home_tab.Click += new System.EventHandler(this.home_tab_Click);
             // 
             // drivers_tab
             // 
             this.drivers_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.drivers_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.drivers_tab.FlatAppearance.BorderSize = 2;
             this.drivers_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.drivers_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,12 +160,13 @@
             this.drivers_tab.Text = "  Drivers";
             this.drivers_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.drivers_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.drivers_tab.UseVisualStyleBackColor = true;
+            this.drivers_tab.UseVisualStyleBackColor = false;
             this.drivers_tab.Click += new System.EventHandler(this.drivers_tab_Click);
             // 
             // vehicles_tab
             // 
             this.vehicles_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.vehicles_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.vehicles_tab.FlatAppearance.BorderSize = 2;
             this.vehicles_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vehicles_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,12 +182,13 @@
             this.vehicles_tab.Text = "  Vehicles";
             this.vehicles_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.vehicles_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.vehicles_tab.UseVisualStyleBackColor = true;
+            this.vehicles_tab.UseVisualStyleBackColor = false;
             this.vehicles_tab.Click += new System.EventHandler(this.vehicles_tab_Click);
             // 
             // gps_tab
             // 
             this.gps_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gps_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.gps_tab.FlatAppearance.BorderSize = 2;
             this.gps_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gps_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,12 +204,13 @@
             this.gps_tab.Text = "  GPS";
             this.gps_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gps_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.gps_tab.UseVisualStyleBackColor = true;
+            this.gps_tab.UseVisualStyleBackColor = false;
             this.gps_tab.Click += new System.EventHandler(this.gps_tab_Click);
             // 
             // alerts_tab
             // 
             this.alerts_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.alerts_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.alerts_tab.FlatAppearance.BorderSize = 2;
             this.alerts_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alerts_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,12 +226,13 @@
             this.alerts_tab.Text = "  Alerts";
             this.alerts_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.alerts_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.alerts_tab.UseVisualStyleBackColor = true;
+            this.alerts_tab.UseVisualStyleBackColor = false;
             this.alerts_tab.Click += new System.EventHandler(this.alerts_tab_Click);
             // 
             // history_tab
             // 
             this.history_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.history_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.history_tab.FlatAppearance.BorderSize = 2;
             this.history_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.history_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,12 +248,13 @@
             this.history_tab.Text = "  History";
             this.history_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.history_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.history_tab.UseVisualStyleBackColor = true;
+            this.history_tab.UseVisualStyleBackColor = false;
             this.history_tab.Click += new System.EventHandler(this.history_tab_Click);
             // 
             // settings_tab
             // 
             this.settings_tab.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.settings_tab.BackColor = System.Drawing.Color.LightSkyBlue;
             this.settings_tab.FlatAppearance.BorderSize = 2;
             this.settings_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settings_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,7 +270,7 @@
             this.settings_tab.Text = "  Settings";
             this.settings_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settings_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.settings_tab.UseVisualStyleBackColor = true;
+            this.settings_tab.UseVisualStyleBackColor = false;
             this.settings_tab.Click += new System.EventHandler(this.settings_tab_Click);
             // 
             // ContentPanel
@@ -295,6 +304,7 @@
             // 
             // TopPanel
             // 
+            this.TopPanel.BackColor = System.Drawing.Color.DarkGray;
             this.TopPanel.Controls.Add(this.HorizontalBar);
             this.TopPanel.Controls.Add(this.lblCurrentTime);
             this.TopPanel.Controls.Add(this.lblCurrentDate);
@@ -336,6 +346,7 @@
             // 
             // MainContent
             // 
+            this.MainContent.BackColor = System.Drawing.Color.DarkGray;
             this.MainContent.Controls.Add(this.btnCloseWindows);
             this.MainContent.Controls.Add(this.btnOpenWindows);
             this.MainContent.Controls.Add(this.lblWindows);
@@ -358,7 +369,8 @@
             // 
             // btnCloseWindows
             // 
-            this.btnCloseWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseWindows.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCloseWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseWindows.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCloseWindows.ImageIndex = 6;
             this.btnCloseWindows.ImageList = this.imageList1;
@@ -369,12 +381,13 @@
             this.btnCloseWindows.TabIndex = 27;
             this.btnCloseWindows.Text = "Close";
             this.btnCloseWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCloseWindows.UseVisualStyleBackColor = true;
+            this.btnCloseWindows.UseVisualStyleBackColor = false;
             // 
             // btnOpenWindows
             // 
             this.btnOpenWindows.AutoSize = true;
-            this.btnOpenWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenWindows.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnOpenWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenWindows.ImageIndex = 2;
             this.btnOpenWindows.ImageList = this.imageList1;
             this.btnOpenWindows.Location = new System.Drawing.Point(484, 322);
@@ -385,22 +398,23 @@
             this.btnOpenWindows.Text = "Open";
             this.btnOpenWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOpenWindows.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnOpenWindows.UseVisualStyleBackColor = true;
+            this.btnOpenWindows.UseVisualStyleBackColor = false;
             // 
             // lblWindows
             // 
             this.lblWindows.AutoSize = true;
-            this.lblWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindows.Location = new System.Drawing.Point(530, 264);
+            this.lblWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWindows.Location = new System.Drawing.Point(500, 264);
             this.lblWindows.Name = "lblWindows";
-            this.lblWindows.Size = new System.Drawing.Size(155, 37);
+            this.lblWindows.Size = new System.Drawing.Size(226, 55);
             this.lblWindows.TabIndex = 25;
             this.lblWindows.Text = "Windows";
             this.lblWindows.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnUnlockDoor
             // 
-            this.btnUnlockDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnlockDoor.BackColor = System.Drawing.Color.LightCoral;
+            this.btnUnlockDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUnlockDoor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnUnlockDoor.ImageIndex = 4;
             this.btnUnlockDoor.ImageList = this.imageList1;
@@ -411,12 +425,13 @@
             this.btnUnlockDoor.TabIndex = 24;
             this.btnUnlockDoor.Text = "Unlock";
             this.btnUnlockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUnlockDoor.UseVisualStyleBackColor = true;
+            this.btnUnlockDoor.UseVisualStyleBackColor = false;
             // 
             // btnLockDoor
             // 
             this.btnLockDoor.AutoSize = true;
-            this.btnLockDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLockDoor.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnLockDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLockDoor.ImageIndex = 3;
             this.btnLockDoor.ImageList = this.imageList1;
             this.btnLockDoor.Location = new System.Drawing.Point(126, 322);
@@ -427,15 +442,15 @@
             this.btnLockDoor.Text = "Lock";
             this.btnLockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLockDoor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnLockDoor.UseVisualStyleBackColor = true;
+            this.btnLockDoor.UseVisualStyleBackColor = false;
             // 
             // lblDoors
             // 
             this.lblDoors.AutoSize = true;
-            this.lblDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoors.Location = new System.Drawing.Point(186, 264);
+            this.lblDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoors.Location = new System.Drawing.Point(173, 264);
             this.lblDoors.Name = "lblDoors";
-            this.lblDoors.Size = new System.Drawing.Size(108, 37);
+            this.lblDoors.Size = new System.Drawing.Size(158, 55);
             this.lblDoors.TabIndex = 22;
             this.lblDoors.Text = "Doors";
             this.lblDoors.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,10 +458,10 @@
             // lblAlarm
             // 
             this.lblAlarm.AutoSize = true;
-            this.lblAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarm.Location = new System.Drawing.Point(551, 36);
+            this.lblAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlarm.Location = new System.Drawing.Point(535, 26);
             this.lblAlarm.Name = "lblAlarm";
-            this.lblAlarm.Size = new System.Drawing.Size(107, 37);
+            this.lblAlarm.Size = new System.Drawing.Size(154, 55);
             this.lblAlarm.TabIndex = 21;
             this.lblAlarm.Text = "Alarm";
             this.lblAlarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -454,23 +469,25 @@
             // btnDeactivateAlarm
             // 
             this.btnDeactivateAlarm.AutoSize = true;
-            this.btnDeactivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeactivateAlarm.BackColor = System.Drawing.Color.LightCoral;
+            this.btnDeactivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateAlarm.ImageIndex = 1;
             this.btnDeactivateAlarm.ImageList = this.imageList1;
-            this.btnDeactivateAlarm.Location = new System.Drawing.Point(620, 91);
+            this.btnDeactivateAlarm.Location = new System.Drawing.Point(610, 91);
             this.btnDeactivateAlarm.Name = "btnDeactivateAlarm";
             this.btnDeactivateAlarm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnDeactivateAlarm.Size = new System.Drawing.Size(106, 99);
+            this.btnDeactivateAlarm.Size = new System.Drawing.Size(116, 99);
             this.btnDeactivateAlarm.TabIndex = 20;
             this.btnDeactivateAlarm.Text = "Deactivate";
             this.btnDeactivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeactivateAlarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDeactivateAlarm.UseVisualStyleBackColor = true;
+            this.btnDeactivateAlarm.UseVisualStyleBackColor = false;
             // 
             // btnActivateAlarm
             // 
             this.btnActivateAlarm.AutoSize = true;
-            this.btnActivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivateAlarm.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnActivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActivateAlarm.ImageIndex = 0;
             this.btnActivateAlarm.ImageList = this.imageList1;
             this.btnActivateAlarm.Location = new System.Drawing.Point(484, 91);
@@ -481,22 +498,23 @@
             this.btnActivateAlarm.Text = "Activate";
             this.btnActivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnActivateAlarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnActivateAlarm.UseVisualStyleBackColor = true;
+            this.btnActivateAlarm.UseVisualStyleBackColor = false;
             // 
             // lblEngine
             // 
             this.lblEngine.AutoSize = true;
-            this.lblEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngine.Location = new System.Drawing.Point(186, 35);
+            this.lblEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEngine.Location = new System.Drawing.Point(160, 26);
             this.lblEngine.Name = "lblEngine";
-            this.lblEngine.Size = new System.Drawing.Size(122, 37);
+            this.lblEngine.Size = new System.Drawing.Size(180, 55);
             this.lblEngine.TabIndex = 18;
             this.lblEngine.Text = "Engine";
             this.lblEngine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStopEngine
             // 
-            this.btnStopEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStopEngine.BackColor = System.Drawing.Color.LightCoral;
+            this.btnStopEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopEngine.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStopEngine.ImageIndex = 0;
             this.btnStopEngine.ImageList = this.imageList3;
@@ -507,12 +525,13 @@
             this.btnStopEngine.TabIndex = 17;
             this.btnStopEngine.Text = "Stop";
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnStopEngine.UseVisualStyleBackColor = true;
+            this.btnStopEngine.UseVisualStyleBackColor = false;
             // 
             // btnStartEngine
             // 
             this.btnStartEngine.AutoSize = true;
-            this.btnStartEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartEngine.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnStartEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartEngine.ImageIndex = 5;
             this.btnStartEngine.ImageList = this.imageList1;
             this.btnStartEngine.Location = new System.Drawing.Point(126, 91);
@@ -523,7 +542,7 @@
             this.btnStartEngine.Text = "Start";
             this.btnStartEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStartEngine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnStartEngine.UseVisualStyleBackColor = true;
+            this.btnStartEngine.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 

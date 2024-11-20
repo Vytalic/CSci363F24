@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAlerts = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblAlerts
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(374, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Alerts";
+            this.lblAlerts.AutoSize = true;
+            this.lblAlerts.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlerts.Location = new System.Drawing.Point(636, 0);
+            this.lblAlerts.Name = "lblAlerts";
+            this.lblAlerts.Size = new System.Drawing.Size(217, 55);
+            this.lblAlerts.TabIndex = 0;
+            this.lblAlerts.Text = "ALERTS";
             // 
             // AlertsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.lblAlerts);
             this.Name = "AlertsControl";
             this.Size = new System.Drawing.Size(853, 457);
             this.ResumeLayout(false);
@@ -54,6 +56,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAlerts;
     }
 }

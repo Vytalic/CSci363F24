@@ -106,14 +106,14 @@ namespace RemoteVehicleManager
             {
                 if (control is Button button)
                 {
-                    button.BackColor = SystemColors.Control;
+                    button.BackColor = Color.LightSkyBlue;
                     button.ForeColor = SystemColors.ControlText;
                     button.FlatStyle = FlatStyle.Flat;
                 }
             }
 
             // Highlight active button
-            activeButton.BackColor = Color.DarkCyan;
+            activeButton.BackColor = Color.Blue;
             activeButton.ForeColor = Color.White;
             activeButton.FlatStyle = FlatStyle.Standard;
         }
