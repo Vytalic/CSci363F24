@@ -84,6 +84,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,14 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +160,11 @@
     <Content Include="Resources\cowbell.png" />
     <Content Include="Resources\cross.png" />
     <Content Include="Resources\down.png" />
+    <Content Include="Resources\drkcar.png" />
+    <Content Include="Resources\drkcowbell.png" />
+    <Content Include="Resources\drkmarker.png" />
+    <Content Include="Resources\drksettings.png" />
+    <Content Include="Resources\drkuser.png" />
     <Content Include="Resources\house-chimney.png" />
     <Content Include="Resources\lock-open-alt.png" />
     <Content Include="Resources\lock.png" />

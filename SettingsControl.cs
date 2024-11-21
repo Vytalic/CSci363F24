@@ -18,6 +18,7 @@ namespace RemoteVehicleManager
         {
 
             InitializeComponent();
+            this.Load += SettingsControl_Load;
 
             // Variables to hold settings
             string fontSize = "Medium";
@@ -95,6 +96,34 @@ namespace RemoteVehicleManager
 
             // Raise the SettingsUpdated event
             SettingsUpdated?.Invoke(this, EventArgs.Empty);
+
+            ApplySettings();
         }
+
+        private void SettingsControl_Load(object sender, EventArgs e)
+        {
+            ApplySettings();
+        }
+
+        public void ApplySettings()
+        {
+            // Determine theme colors
+            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.DarkGray;
+            Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
+
+            this.BackColor = backgroundColor;
+
+            // Apply to all other controls
+            foreach (Control control in this.Controls)
+            {
+                if (control.Name != "btnSaveChanges")
+                {
+                    control.BackColor = backgroundColor;
+                    control.ForeColor = textColor;
+                }
+
+            }
+        }
+
     }
 }

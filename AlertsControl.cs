@@ -34,7 +34,7 @@ namespace RemoteVehicleManager
         public void ApplySettings()
         {
             // Determine theme colors
-            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.White;
+            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.DarkGray;
             Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
           
 
@@ -94,6 +94,18 @@ namespace RemoteVehicleManager
                 {
                     flp.BackColor = backgroundColor;
                 }
+                else if (control is ComboBox)
+                {
+                    if (SettingsManager.Theme == "Dark")
+                    {
+                        control.BackColor = Color.Black;
+                    }
+                    else
+                    {
+                        control.BackColor = Color.White;
+                    }
+                    
+                }
                 else
                 {
                     control.BackColor = backgroundColor;
@@ -119,7 +131,7 @@ namespace RemoteVehicleManager
         public void DisplayAlerts(List<(DateTime DateTime, string Description, int Severity)> alerts)
         {
             // Determine theme colors
-            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.White;
+            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.DarkGray;
             Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
 
             // Clear existing controls in the panel

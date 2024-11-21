@@ -33,7 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStartEngine = new System.Windows.Forms.Button();
+            this.imageList5 = new System.Windows.Forms.ImageList(this.components);
             this.btnStopEngine = new System.Windows.Forms.Button();
+            this.imageList6 = new System.Windows.Forms.ImageList(this.components);
             this.lblEngine = new System.Windows.Forms.Label();
             this.btnActivateAlarm = new System.Windows.Forms.Button();
             this.btnDeactivateAlarm = new System.Windows.Forms.Button();
@@ -48,8 +50,10 @@
             this.imageList4 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList5 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList6 = new System.Windows.Forms.ImageList(this.components);
+            this.lblWindowsStatus = new System.Windows.Forms.Label();
+            this.lblDoorsStatus = new System.Windows.Forms.Label();
+            this.lblAlarmStatus = new System.Windows.Forms.Label();
+            this.lblEngineStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,6 +89,18 @@
             this.btnStartEngine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnStartEngine.UseVisualStyleBackColor = false;
             // 
+            // imageList5
+            // 
+            this.imageList5.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList5.ImageStream")));
+            this.imageList5.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList5.Images.SetKeyName(0, "bell-ring.png");
+            this.imageList5.Images.SetKeyName(1, "bell-slash.png");
+            this.imageList5.Images.SetKeyName(2, "down.png");
+            this.imageList5.Images.SetKeyName(3, "lock.png");
+            this.imageList5.Images.SetKeyName(4, "lock-open-alt.png");
+            this.imageList5.Images.SetKeyName(5, "power.png");
+            this.imageList5.Images.SetKeyName(6, "up.png");
+            // 
             // btnStopEngine
             // 
             this.btnStopEngine.BackColor = System.Drawing.Color.LightCoral;
@@ -101,11 +117,17 @@
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStopEngine.UseVisualStyleBackColor = false;
             // 
+            // imageList6
+            // 
+            this.imageList6.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList6.ImageStream")));
+            this.imageList6.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList6.Images.SetKeyName(0, "cross.png");
+            // 
             // lblEngine
             // 
             this.lblEngine.AutoSize = true;
             this.lblEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngine.Location = new System.Drawing.Point(164, 24);
+            this.lblEngine.Location = new System.Drawing.Point(116, 24);
             this.lblEngine.Name = "lblEngine";
             this.lblEngine.Size = new System.Drawing.Size(180, 55);
             this.lblEngine.TabIndex = 4;
@@ -150,7 +172,7 @@
             // 
             this.lblAlarm.AutoSize = true;
             this.lblAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarm.Location = new System.Drawing.Point(527, 24);
+            this.lblAlarm.Location = new System.Drawing.Point(474, 24);
             this.lblAlarm.Name = "lblAlarm";
             this.lblAlarm.Size = new System.Drawing.Size(154, 55);
             this.lblAlarm.TabIndex = 7;
@@ -161,7 +183,7 @@
             // 
             this.lblDoors.AutoSize = true;
             this.lblDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoors.Location = new System.Drawing.Point(176, 264);
+            this.lblDoors.Location = new System.Drawing.Point(116, 264);
             this.lblDoors.Name = "lblDoors";
             this.lblDoors.Size = new System.Drawing.Size(158, 55);
             this.lblDoors.TabIndex = 8;
@@ -238,7 +260,7 @@
             // 
             this.lblWindows.AutoSize = true;
             this.lblWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindows.Location = new System.Drawing.Point(500, 264);
+            this.lblWindows.Location = new System.Drawing.Point(474, 264);
             this.lblWindows.Name = "lblWindows";
             this.lblWindows.Size = new System.Drawing.Size(226, 55);
             this.lblWindows.TabIndex = 11;
@@ -283,29 +305,55 @@
             this.imageList2.Images.SetKeyName(5, "time-past.png");
             this.imageList2.Images.SetKeyName(6, "user.png");
             // 
-            // imageList5
+            // lblWindowsStatus
             // 
-            this.imageList5.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList5.ImageStream")));
-            this.imageList5.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList5.Images.SetKeyName(0, "bell-ring.png");
-            this.imageList5.Images.SetKeyName(1, "bell-slash.png");
-            this.imageList5.Images.SetKeyName(2, "down.png");
-            this.imageList5.Images.SetKeyName(3, "lock.png");
-            this.imageList5.Images.SetKeyName(4, "lock-open-alt.png");
-            this.imageList5.Images.SetKeyName(5, "power.png");
-            this.imageList5.Images.SetKeyName(6, "up.png");
+            this.lblWindowsStatus.AutoSize = true;
+            this.lblWindowsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWindowsStatus.Location = new System.Drawing.Point(695, 280);
+            this.lblWindowsStatus.Name = "lblWindowsStatus";
+            this.lblWindowsStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblWindowsStatus.TabIndex = 35;
+            this.lblWindowsStatus.Text = "(Status)";
             // 
-            // imageList6
+            // lblDoorsStatus
             // 
-            this.imageList6.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList6.ImageStream")));
-            this.imageList6.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList6.Images.SetKeyName(0, "cross.png");
+            this.lblDoorsStatus.AutoSize = true;
+            this.lblDoorsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoorsStatus.Location = new System.Drawing.Point(269, 280);
+            this.lblDoorsStatus.Name = "lblDoorsStatus";
+            this.lblDoorsStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblDoorsStatus.TabIndex = 34;
+            this.lblDoorsStatus.Text = "(Status)";
+            // 
+            // lblAlarmStatus
+            // 
+            this.lblAlarmStatus.AutoSize = true;
+            this.lblAlarmStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlarmStatus.Location = new System.Drawing.Point(632, 48);
+            this.lblAlarmStatus.Name = "lblAlarmStatus";
+            this.lblAlarmStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblAlarmStatus.TabIndex = 33;
+            this.lblAlarmStatus.Text = "(Status)";
+            // 
+            // lblEngineStatus
+            // 
+            this.lblEngineStatus.AutoSize = true;
+            this.lblEngineStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEngineStatus.Location = new System.Drawing.Point(292, 48);
+            this.lblEngineStatus.Name = "lblEngineStatus";
+            this.lblEngineStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblEngineStatus.TabIndex = 32;
+            this.lblEngineStatus.Text = "(Status)";
             // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.lblWindowsStatus);
+            this.Controls.Add(this.lblDoorsStatus);
+            this.Controls.Add(this.lblAlarmStatus);
+            this.Controls.Add(this.lblEngineStatus);
             this.Controls.Add(this.btnCloseWindows);
             this.Controls.Add(this.btnOpenWindows);
             this.Controls.Add(this.lblWindows);
@@ -349,5 +397,9 @@
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.ImageList imageList5;
         private System.Windows.Forms.ImageList imageList6;
+        private System.Windows.Forms.Label lblWindowsStatus;
+        private System.Windows.Forms.Label lblDoorsStatus;
+        private System.Windows.Forms.Label lblAlarmStatus;
+        private System.Windows.Forms.Label lblEngineStatus;
     }
 }

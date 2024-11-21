@@ -66,6 +66,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.VerticalBar = new System.Windows.Forms.Splitter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.drkIcons = new System.Windows.Forms.ImageList(this.components);
+            this.lblEngineStatus = new System.Windows.Forms.Label();
+            this.lblAlarmStatus = new System.Windows.Forms.Label();
+            this.lblDoorsStatus = new System.Windows.Forms.Label();
+            this.lblWindowsStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -185,7 +190,7 @@
             this.vehicles_tab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vehicles_tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehicles_tab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.vehicles_tab.ImageKey = "car.png";
+            this.vehicles_tab.ImageIndex = 0;
             this.vehicles_tab.ImageList = this.imageList2;
             this.vehicles_tab.Location = new System.Drawing.Point(10, 205);
             this.vehicles_tab.Margin = new System.Windows.Forms.Padding(10);
@@ -374,6 +379,10 @@
             // MainContent
             // 
             this.MainContent.BackColor = System.Drawing.Color.DarkGray;
+            this.MainContent.Controls.Add(this.lblWindowsStatus);
+            this.MainContent.Controls.Add(this.lblDoorsStatus);
+            this.MainContent.Controls.Add(this.lblAlarmStatus);
+            this.MainContent.Controls.Add(this.lblEngineStatus);
             this.MainContent.Controls.Add(this.btnCloseWindows);
             this.MainContent.Controls.Add(this.btnOpenWindows);
             this.MainContent.Controls.Add(this.lblWindows);
@@ -443,7 +452,7 @@
             // 
             this.lblWindows.AutoSize = true;
             this.lblWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindows.Location = new System.Drawing.Point(500, 264);
+            this.lblWindows.Location = new System.Drawing.Point(474, 264);
             this.lblWindows.Name = "lblWindows";
             this.lblWindows.Size = new System.Drawing.Size(226, 55);
             this.lblWindows.TabIndex = 25;
@@ -487,7 +496,7 @@
             // 
             this.lblDoors.AutoSize = true;
             this.lblDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoors.Location = new System.Drawing.Point(173, 264);
+            this.lblDoors.Location = new System.Drawing.Point(116, 264);
             this.lblDoors.Name = "lblDoors";
             this.lblDoors.Size = new System.Drawing.Size(158, 55);
             this.lblDoors.TabIndex = 22;
@@ -498,7 +507,7 @@
             // 
             this.lblAlarm.AutoSize = true;
             this.lblAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarm.Location = new System.Drawing.Point(535, 26);
+            this.lblAlarm.Location = new System.Drawing.Point(474, 26);
             this.lblAlarm.Name = "lblAlarm";
             this.lblAlarm.Size = new System.Drawing.Size(154, 55);
             this.lblAlarm.TabIndex = 21;
@@ -543,7 +552,7 @@
             // 
             this.lblEngine.AutoSize = true;
             this.lblEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngine.Location = new System.Drawing.Point(160, 26);
+            this.lblEngine.Location = new System.Drawing.Point(116, 26);
             this.lblEngine.Name = "lblEngine";
             this.lblEngine.Size = new System.Drawing.Size(180, 55);
             this.lblEngine.TabIndex = 18;
@@ -621,6 +630,54 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             // 
+            // drkIcons
+            // 
+            this.drkIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("drkIcons.ImageStream")));
+            this.drkIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.drkIcons.Images.SetKeyName(0, "drkcar.png");
+            this.drkIcons.Images.SetKeyName(1, "drkcowbell.png");
+            this.drkIcons.Images.SetKeyName(2, "drkhouse-chimney.png");
+            this.drkIcons.Images.SetKeyName(3, "drkmarker.png");
+            this.drkIcons.Images.SetKeyName(4, "drksettings.png");
+            this.drkIcons.Images.SetKeyName(5, "drktime-past.png");
+            this.drkIcons.Images.SetKeyName(6, "drkuser.png");
+            // 
+            // lblEngineStatus
+            // 
+            this.lblEngineStatus.AutoSize = true;
+            this.lblEngineStatus.Location = new System.Drawing.Point(303, 51);
+            this.lblEngineStatus.Name = "lblEngineStatus";
+            this.lblEngineStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblEngineStatus.TabIndex = 28;
+            this.lblEngineStatus.Text = "(Status)";
+            // 
+            // lblAlarmStatus
+            // 
+            this.lblAlarmStatus.AutoSize = true;
+            this.lblAlarmStatus.Location = new System.Drawing.Point(643, 51);
+            this.lblAlarmStatus.Name = "lblAlarmStatus";
+            this.lblAlarmStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblAlarmStatus.TabIndex = 29;
+            this.lblAlarmStatus.Text = "(Status)";
+            // 
+            // lblDoorsStatus
+            // 
+            this.lblDoorsStatus.AutoSize = true;
+            this.lblDoorsStatus.Location = new System.Drawing.Point(280, 283);
+            this.lblDoorsStatus.Name = "lblDoorsStatus";
+            this.lblDoorsStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblDoorsStatus.TabIndex = 30;
+            this.lblDoorsStatus.Text = "(Status)";
+            // 
+            // lblWindowsStatus
+            // 
+            this.lblWindowsStatus.AutoSize = true;
+            this.lblWindowsStatus.Location = new System.Drawing.Point(706, 283);
+            this.lblWindowsStatus.Name = "lblWindowsStatus";
+            this.lblWindowsStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblWindowsStatus.TabIndex = 31;
+            this.lblWindowsStatus.Text = "(Status)";
+            // 
             // MainUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,6 +745,11 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList3;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.ImageList drkIcons;
+        private System.Windows.Forms.Label lblAlarmStatus;
+        private System.Windows.Forms.Label lblEngineStatus;
+        private System.Windows.Forms.Label lblWindowsStatus;
+        private System.Windows.Forms.Label lblDoorsStatus;
     }
 }
 

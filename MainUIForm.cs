@@ -18,6 +18,9 @@ namespace RemoteVehicleManager
         public MainUIForm()
         {
             InitializeComponent();
+            LoadControl(new HomeControl());
+            HighlightActiveButton(home_tab);
+            ApplySettings();
         }
 
         private void MainUIForm_Load(object sender, EventArgs e)
@@ -35,7 +38,26 @@ namespace RemoteVehicleManager
                 {
                     historyControl.ApplySettings();
                 }
+                else if (control is AlertsControl alertControl)
+                {
+                    alertControl.ApplySettings();
+                }
+                else if (control is DriversControl driverControl)
+                {
+                    driverControl.ApplySettings();
+                }
+                else if (control is HomeControl homeControl)
+                {
+                    homeControl.ApplySettings();
+                }
+                else if (control is SettingsControl settingsControl)
+                {
+                    settingsControl.ApplySettings();
+                }
             }
+
+            
+
             // Display current date
             lblCurrentDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
 
@@ -57,51 +79,103 @@ namespace RemoteVehicleManager
 
         public void ApplySettings()
         {
-            // Apply Dark Theme
             if (SettingsManager.Theme == "Dark")
             {
-                this.BackColor = Color.FromArgb(40, 40, 40);
-                foreach (Control control in this.Controls)
+                
+                SidePanel.ForeColor = Color.White;
+                SidePanel.BackColor = Color.FromArgb(40, 40, 40);
+                TopPanel.ForeColor = Color.White;
+                TopPanel.BackColor = Color.FromArgb(40, 40, 40);
+
+                HorizontalBar.BackColor = Color.White;
+                VerticalBar.BackColor = Color.White;
+
+                splitContainer1.BackColor = SidePanel.BackColor;
+
+                panel1.BackColor = Color.White;
+                panel2.BackColor = Color.White;
+
+                foreach(Button button in SidePanel.Controls)
                 {
-                    control.ForeColor = Color.White;
+                    button.BackColor = Color.MidnightBlue;
+                    button.ForeColor = Color.White;
+                    button.ImageList = drkIcons;
+                }
+
+            }
+            else if (SettingsManager.Theme == "Light")
+            {
+                SidePanel.ForeColor = Color.Black;
+                SidePanel.BackColor = Color.DarkGray;
+                TopPanel.ForeColor = Color.Black;
+                TopPanel.BackColor = Color.DarkGray;
+
+                HorizontalBar.BackColor = Color.Black;
+                VerticalBar.BackColor = Color.Black;
+
+                splitContainer1.BackColor = SidePanel.BackColor;
+
+                panel1.BackColor = Color.Black;
+                panel2.BackColor = Color.Black;
+
+                foreach (Button button in SidePanel.Controls)
+                {
+                    button.BackColor = Color.LightSkyBlue;
+                    button.ForeColor = Color.Black;
+                    button.ImageList = imageList2;
                 }
             }
-            else // Apply Light Theme
-            {
-                this.BackColor = Color.DarkGray;
-                foreach (Control control in this.Controls)
-                {
-                    control.ForeColor = Color.Black;
-                }
-            }
-
-            // Apply fontsize to labels
-            float fontSize = 12;
-            switch (SettingsManager.FontSize.ToLower())
-            {
-                case "small":
-                    fontSize = 10;
-                    break;
-                case "medium":
-                    fontSize = 12;
-                    break;
-                case "large":
-                    fontSize = 14;
-                    break;
-                default:
-                    fontSize = 12;
-                    break;
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is Label label)
-                {
-                    label.Font = new Font(label.Font.FontFamily, fontSize);
-                }
-            }
-
         }
+
+        //public void ApplySettings()
+        //{
+        //    // Apply Dark Theme
+        //    if (SettingsManager.Theme == "Dark")
+        //    {
+                
+        //        foreach (Control control in this.Controls)
+        //        {
+        //            control.ForeColor = Color.White;
+        //            this.BackColor = Color.FromArgb(40, 40, 40);
+        //        }
+        //    }
+        //    else // Apply Light Theme
+        //    {
+                
+        //        foreach (Control control in this.Controls)
+        //        {
+        //            control.ForeColor = Color.Black;
+        //            this.BackColor = Color.DarkGray;
+        //        }
+        //    }
+
+        //    // Apply fontsize to labels
+        //    float fontSize = 12;
+        //    switch (SettingsManager.FontSize.ToLower())
+        //    {
+        //        case "small":
+        //            fontSize = 10;
+        //            break;
+        //        case "medium":
+        //            fontSize = 12;
+        //            break;
+        //        case "large":
+        //            fontSize = 14;
+        //            break;
+        //        default:
+        //            fontSize = 12;
+        //            break;
+        //    }
+
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        if (control is Label label)
+        //        {
+        //            label.Font = new Font(label.Font.FontFamily, fontSize);
+        //        }
+        //    }
+
+        //}
 
         private void LoadControl(UserControl control)
         {
@@ -186,9 +260,29 @@ namespace RemoteVehicleManager
                 {
                     historyControl.ApplySettings();
                 }
-                else if (control is AlertsControl alertsControl)
+                else if (control is AlertsControl alertControl)
                 {
-                    alertsControl.ApplySettings();
+                    alertControl.ApplySettings();
+                }
+                else if (control is DriversControl driverControl)
+                {
+                    driverControl.ApplySettings();
+                }
+                else if (control is HomeControl homeControl)
+                {
+                    homeControl.ApplySettings();
+                }
+                else if (control is VehiclesControl vehiclesControl)
+                {
+                    vehiclesControl.ApplySettings();
+                }
+                else if (control is GPSControl gpsControl)
+                {
+                    gpsControl.ApplySettings();
+                }
+                else if (control is SettingsControl settingsControl)
+                {
+                    settingsControl.ApplySettings();
                 }
             }
         }
@@ -200,9 +294,22 @@ namespace RemoteVehicleManager
             {
                 if (control is Button button && button.Name != "btnTest")
                 {
-                    button.BackColor = Color.LightSkyBlue;
-                    button.ForeColor = SystemColors.ControlText;
-                    button.FlatStyle = FlatStyle.Flat;
+                    if (SettingsManager.Theme == "Dark")
+                    {
+                        button.BackColor = Color.MidnightBlue;
+                        button.ForeColor = Color.White;
+                        button.FlatStyle = FlatStyle.Standard;
+
+                        button.ImageList = drkIcons;
+                    }
+                    else if (SettingsManager.Theme == "Light")
+                    {
+                       button.BackColor = Color.LightSkyBlue;
+                       button.ForeColor = Color.Black;
+                       button.FlatStyle = FlatStyle.Flat;
+
+                        button.ImageList = imageList2;
+                    }
                 }
             }
 
