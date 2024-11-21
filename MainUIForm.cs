@@ -22,6 +22,20 @@ namespace RemoteVehicleManager
 
         private void MainUIForm_Load(object sender, EventArgs e)
         {
+            // Load settings
+            SettingsManager.LoadSettings("settingsData.txt");
+
+            // Apply settings to MainUIForm
+            ApplySettings();
+
+            // Apply settings to initial UI controls
+            foreach (Control control in MainContent.Controls)
+            {
+                if (control is HistoryControl historyControl)
+                {
+                    historyControl.ApplySettings();
+                }
+            }
             // Display current date
             lblCurrentDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
 
@@ -39,6 +53,54 @@ namespace RemoteVehicleManager
         {
             // Update timer each second
             lblCurrentTime.Text = DateTime.Now.ToString("h:mm:ss tt");
+        }
+
+        public void ApplySettings()
+        {
+            // Apply Dark Theme
+            if (SettingsManager.Theme == "Dark")
+            {
+                this.BackColor = Color.FromArgb(40, 40, 40);
+                foreach (Control control in this.Controls)
+                {
+                    control.ForeColor = Color.White;
+                }
+            }
+            else // Apply Light Theme
+            {
+                this.BackColor = Color.DarkGray;
+                foreach (Control control in this.Controls)
+                {
+                    control.ForeColor = Color.Black;
+                }
+            }
+
+            // Apply fontsize to labels
+            float fontSize = 12;
+            switch (SettingsManager.FontSize.ToLower())
+            {
+                case "small":
+                    fontSize = 10;
+                    break;
+                case "medium":
+                    fontSize = 12;
+                    break;
+                case "large":
+                    fontSize = 14;
+                    break;
+                default:
+                    fontSize = 12;
+                    break;
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label label)
+                {
+                    label.Font = new Font(label.Font.FontFamily, fontSize);
+                }
+            }
+
         }
 
         private void LoadControl(UserControl control)
@@ -103,8 +165,32 @@ namespace RemoteVehicleManager
         // Loads Settings tab on click
         private void settings_tab_Click(object sender, EventArgs e)
         {
-            HighlightActiveButton((Button)sender); 
-            LoadControl(new SettingsControl());
+            HighlightActiveButton((Button)sender);
+            
+            var settingsControl = new SettingsControl();
+            settingsControl.SettingsUpdated += SettingsControl_SettingsUpdated;
+            
+            LoadControl(settingsControl);
+        }
+
+        // Handles events to apply updated settings
+        private void SettingsControl_SettingsUpdated(object sender, EventArgs e)
+        {
+            // Apply settings to MainUIForm
+            ApplySettings();
+
+            // Apply settings to other active controls
+            foreach (Control control in MainContent.Controls)
+            {
+                if (control is HistoryControl historyControl)
+                {
+                    historyControl.ApplySettings();
+                }
+                else if (control is AlertsControl alertsControl)
+                {
+                    alertsControl.ApplySettings();
+                }
+            }
         }
 
         private void HighlightActiveButton(Button activeButton)

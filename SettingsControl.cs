@@ -16,6 +16,7 @@ namespace RemoteVehicleManager
     {
         public SettingsControl()
         {
+
             InitializeComponent();
 
             // Variables to hold settings
@@ -36,12 +37,21 @@ namespace RemoteVehicleManager
                     
                     if (parts.Length == 6)
                     {
+                        // Store in variable (may not be necessary)
                         fontSize = parts[0];
                         temperature = parts[1];
                         theme = parts[2];
                         timeFormat = parts[3];
                         updateFrequency = parts[4];
                         vibration = parts[5];
+
+                        // Change based on settings file
+                        cbFontSize.SelectedItem = parts[0];
+                        cbTemperature.SelectedItem = parts[1];
+                        cbTheme.SelectedItem = parts[2];
+                        cbTimeFormat.SelectedItem = parts[3];
+                        cbUpdateFrequency.SelectedItem = parts[4];
+                        cbVibration.SelectedItem = parts[5];
                     }
                     
                 }
@@ -53,6 +63,8 @@ namespace RemoteVehicleManager
             }
                 
         }
+
+        public event EventHandler SettingsUpdated;
 
         private void InitializeSettings()
         {
@@ -66,6 +78,23 @@ namespace RemoteVehicleManager
             cbTimeFormat.SelectedItem = "12-Hour";
             cbUpdateFrequency.SelectedItem = "Daily";
             cbVibration.SelectedItem = "Off";
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            // Save updated settings
+            SettingsManager.FontSize = cbFontSize.SelectedItem.ToString();
+            SettingsManager.Temperature = cbTemperature.SelectedItem.ToString();
+            SettingsManager.Theme = cbTheme.SelectedItem.ToString();
+            SettingsManager.TimeFormat = cbTimeFormat.SelectedItem.ToString();
+            SettingsManager.UpdateFrequency = cbUpdateFrequency.SelectedItem.ToString();
+            SettingsManager.Vibration = cbVibration.SelectedItem.ToString();
+
+            // Save the settings to file
+            SettingsManager.SaveSettings("settingsData.txt");
+
+            // Raise the SettingsUpdated event
+            SettingsUpdated?.Invoke(this, EventArgs.Empty);
         }
     }
 }

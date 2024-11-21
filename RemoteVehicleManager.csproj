@@ -52,7 +52,6 @@
     <Compile Include="AlertsControl.Designer.cs">
       <DependentUpon>AlertsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlertsManager.cs" />
     <Compile Include="DriversControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +90,7 @@
     <Compile Include="SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsManager.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>

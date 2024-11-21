@@ -40,6 +40,7 @@
             this.alerts_tab = new System.Windows.Forms.Button();
             this.history_tab = new System.Windows.Forms.Button();
             this.settings_tab = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.TopPanel = new System.Windows.Forms.Panel();
@@ -65,7 +66,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.VerticalBar = new System.Windows.Forms.Splitter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -286,6 +286,19 @@
             this.settings_tab.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.settings_tab.UseVisualStyleBackColor = false;
             this.settings_tab.Click += new System.EventHandler(this.settings_tab_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTest.Location = new System.Drawing.Point(10, 548);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(132, 26);
+            this.btnTest.TabIndex = 7;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // ContentPanel
             // 
@@ -607,19 +620,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
-            // 
-            // btnTest
-            // 
-            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTest.Location = new System.Drawing.Point(10, 548);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(132, 26);
-            this.btnTest.TabIndex = 7;
-            this.btnTest.Text = "Test";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // MainUIForm
             // 

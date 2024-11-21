@@ -17,6 +17,13 @@ namespace RemoteVehicleManager
         {
             InitializeComponent();
             InitializeComboBox();
+
+            this.Load += AlertsControl_Load;
+        }
+
+        private void AlertsControl_Load(object sender, EventArgs e)
+        {
+            ApplySettings();
         }
 
         private void InitializeComboBox()
@@ -24,8 +31,97 @@ namespace RemoteVehicleManager
             comboBoxSortBy.SelectedItem = "Newest";
         }
 
+        public void ApplySettings()
+        {
+            // Determine theme colors
+            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.White;
+            Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
+          
+
+            // Apply font size (default is medium = 12)
+            float fontSize = 12;
+            switch (SettingsManager.FontSize.ToLower())
+            {
+                case "small":
+                    fontSize = 10;
+                    break;
+                case "medium":
+                    fontSize = 12;
+                    break;
+                case "large":
+                    fontSize = 14;
+                    break;
+                default:
+                    fontSize = 12;
+                    break;
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label label)
+                {
+                    if (label.Name == "lblAlerts")
+                    {
+                        label.Font = new Font(label.Font.FontFamily, (fontSize + 24));
+                    }
+                    else
+                    {
+                        label.Font = new Font(label.Font.FontFamily, fontSize);
+
+                    }
+                }
+                else if (control is FlowLayoutPanel flp)
+                {
+                    // Apply font size to combobox
+                    if (flp.Name == "flowLayoutPanel1")
+                    {
+                        flp.Font = new Font(flp.Font.FontFamily, fontSize);
+                    }
+                }
+            }
+
+            // Apply Dark or Light theme
+            // Update UserControl background
+            this.BackColor = backgroundColor;
+
+            // Update all direct child controls
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = backgroundColor;
+                control.ForeColor = textColor;
+
+                if (control is FlowLayoutPanel flp)
+                {
+                    flp.BackColor = backgroundColor;
+                }
+                else
+                {
+                    control.BackColor = backgroundColor;
+                }
+            }
+
+            // Update dynamically created rows in FlowLayoutPanel
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Panel rowPanel)
+                {
+                    rowPanel.BackColor = backgroundColor;
+
+                    foreach (Control innerControl in rowPanel.Controls)
+                    {
+                        innerControl.BackColor = backgroundColor;
+                        innerControl.ForeColor = textColor;
+                    }
+                }
+            }
+        }
+
         public void DisplayAlerts(List<(DateTime DateTime, string Description, int Severity)> alerts)
         {
+            // Determine theme colors
+            Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.White;
+            Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
+
             // Clear existing controls in the panel
             flowLayoutPanel1.Controls.Clear();
 
@@ -37,6 +133,7 @@ namespace RemoteVehicleManager
                     Height = 50,
                     Width = flowLayoutPanel1.Width - 20, // Adjust for padding/margin
                     //BorderStyle = BorderStyle.FixedSingle,
+                    BackColor = backgroundColor,
                     Margin = new Padding(5),
                     Dock = DockStyle.Top,
                 };
@@ -61,6 +158,8 @@ namespace RemoteVehicleManager
                     TextAlign = ContentAlignment.MiddleCenter,
                     Margin = new Padding(5),
                     Font = new Font("Microsoft Sans Serif", 12, FontStyle.Regular),
+                    BackColor = backgroundColor,
+                    ForeColor = textColor,
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
@@ -74,6 +173,8 @@ namespace RemoteVehicleManager
                     TextAlign = ContentAlignment.MiddleCenter,
                     Margin = new Padding(5),
                     Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular),
+                    BackColor = backgroundColor,
+                    ForeColor = textColor,
                     BorderStyle = BorderStyle.FixedSingle
                 };
 

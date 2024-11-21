@@ -41,6 +41,7 @@
             this.cbTimeFormat = new System.Windows.Forms.ComboBox();
             this.cbUpdateFrequency = new System.Windows.Forms.ComboBox();
             this.cbVibration = new System.Windows.Forms.ComboBox();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblSettings
@@ -200,11 +201,24 @@
             this.cbVibration.Size = new System.Drawing.Size(121, 24);
             this.cbVibration.TabIndex = 12;
             // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSaveChanges.Location = new System.Drawing.Point(752, 420);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(88, 23);
+            this.btnSaveChanges.TabIndex = 13;
+            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            // 
             // SettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.cbVibration);
             this.Controls.Add(this.cbUpdateFrequency);
             this.Controls.Add(this.cbTimeFormat);
@@ -240,5 +254,6 @@
         private System.Windows.Forms.ComboBox cbTimeFormat;
         private System.Windows.Forms.ComboBox cbUpdateFrequency;
         private System.Windows.Forms.ComboBox cbVibration;
+        private System.Windows.Forms.Button btnSaveChanges;
     }
 }
