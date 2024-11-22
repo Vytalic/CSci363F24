@@ -157,13 +157,17 @@
     <Content Include="Resources\bell-ring.png" />
     <Content Include="Resources\bell-slash.png" />
     <Content Include="Resources\car.png" />
+    <Content Include="Resources\checked_white.png" />
+    <Content Include="Resources\check_dark.png" />
     <Content Include="Resources\cowbell.png" />
     <Content Include="Resources\cross.png" />
     <Content Include="Resources\down.png" />
     <Content Include="Resources\drkcar.png" />
     <Content Include="Resources\drkcowbell.png" />
+    <None Include="Resources\drkhousechimney.png" />
     <Content Include="Resources\drkmarker.png" />
     <Content Include="Resources\drksettings.png" />
+    <None Include="Resources\drktimepast.png" />
     <Content Include="Resources\drkuser.png" />
     <Content Include="Resources\house-chimney.png" />
     <Content Include="Resources\lock-open-alt.png" />
@@ -171,9 +175,14 @@
     <Content Include="Resources\marker.png" />
     <Resource Include="Resources\octagon-exclamation.png" />
     <Content Include="Resources\power.png" />
+    <Content Include="Resources\saved.png" />
+    <Content Include="Resources\saveddark.png" />
     <Content Include="Resources\settings.png" />
     <Content Include="Resources\time-past.png" />
     <Resource Include="Resources\triangle-warning.png" />
+    <Content Include="Resources\unchecked_dark.png" />
+    <Content Include="Resources\unchecked_white.png" />
+    <Content Include="Resources\unsaved.png" />
     <Content Include="Resources\up.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>

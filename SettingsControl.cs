@@ -14,71 +14,149 @@ namespace RemoteVehicleManager
 {
     public partial class SettingsControl : UserControl
     {
+        private Dictionary<ComboBox, PictureBox> comboBoxToPictureBoxMap;
+        private Dictionary<ComboBox, string> originalSettings;
+        private Dictionary<ComboBox, bool> unsavedStatus;
+        private int unsavedChangesCount;
+
+
+
         public SettingsControl()
         {
-
             InitializeComponent();
             this.Load += SettingsControl_Load;
 
-            // Variables to hold settings
-            string fontSize = "Medium";
-            string temperature = "Fahrenheit";
-            string theme = "Dark";
-            string timeFormat = "12-Hour";
-            string updateFrequency = "Daily";
-            string vibration = "Off";
-
-            if (File.Exists("settingsData.txt"))
+            // Construct the dictionary containing original settings
+            originalSettings = new Dictionary<ComboBox, string>
             {
-                // Read all lines in the file
-                // where the file structure is: fontsize,temperature,theme,timeformat,updatefrequency,vibrationfeedback
-                foreach (var line in File.ReadAllLines("settingsData.txt"))
-                {
-                    var parts = line.Split(',');
-                    
-                    if (parts.Length == 6)
-                    {
-                        // Store in variable (may not be necessary)
-                        fontSize = parts[0];
-                        temperature = parts[1];
-                        theme = parts[2];
-                        timeFormat = parts[3];
-                        updateFrequency = parts[4];
-                        vibration = parts[5];
+                { cbFontSize, string.Empty },
+                { cbTemperature, string.Empty },
+                { cbTheme, string.Empty },
+                { cbTimeFormat, string.Empty },
+                { cbUpdateFrequency, string.Empty },
+                { cbVibration, string.Empty }
+            };
 
-                        // Change based on settings file
-                        cbFontSize.SelectedItem = parts[0];
-                        cbTemperature.SelectedItem = parts[1];
-                        cbTheme.SelectedItem = parts[2];
-                        cbTimeFormat.SelectedItem = parts[3];
-                        cbUpdateFrequency.SelectedItem = parts[4];
-                        cbVibration.SelectedItem = parts[5];
-                    }
-                    
-                }
-            }
-            else
+            // Initialize change status in comboboxes
+            unsavedStatus = new Dictionary<ComboBox, bool>
+{
+                { cbFontSize, false },
+                { cbTemperature, false },
+                { cbTheme, false },
+                { cbTimeFormat, false },
+                { cbUpdateFrequency, false },
+                { cbVibration, false }
+            };
+
+
+            // Map ComboBoxes to their corresponding PictureBoxes
+            comboBoxToPictureBoxMap = new Dictionary<ComboBox, PictureBox>
             {
-                // Initialize settings to default value if file does not exist
-                InitializeSettings();
+                { cbFontSize, picChangeFont },
+                { cbTemperature, picChangeTemp },
+                { cbTheme, picChangeTheme },
+                { cbTimeFormat, picChangeTime },
+                { cbUpdateFrequency, picChangeUpdate },
+                { cbVibration, picChangeVibration }
+            };
+
+
+            // Attach event handlers to ComboBoxes
+            foreach (var comboBox in comboBoxToPictureBoxMap.Keys)
+            {
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
             }
-                
+
+            // Initialize settings
+            InitializeSettings();
         }
 
         public event EventHandler SettingsUpdated;
 
         private void InitializeSettings()
         {
-            // Write the default values to a file
+            // Default values
             var defaultSettings = "Medium,Fahrenheit,Dark,12-Hour,Daily,Off";
-            File.WriteAllText("settingsData.txt", defaultSettings);
 
-            cbFontSize.SelectedItem = "Medium";
-            cbTemperature.SelectedItem = "Fahrenheit";
-            cbTheme.SelectedItem = "Dark";
-            cbTimeFormat.SelectedItem = "12-Hour";
-            cbUpdateFrequency.SelectedItem = "Daily";
-            cbVibration.SelectedItem = "Off";
+            // Write defaults if file doesn't exist
+            if (!File.Exists("settingsData.txt"))
+            {
+                File.WriteAllText("settingsData.txt", defaultSettings);
+            }
+
+            // Load settings
+            var settings = File.ReadAllLines("settingsData.txt")[0].Split(',');
+
+            // Apply to ComboBoxes and store originals
+            originalSettings[cbFontSize] = settings[0];
+            cbFontSize.SelectedItem = settings[0];
+
+            originalSettings[cbTemperature] = settings[1];
+            cbTemperature.SelectedItem = settings[1];
+
+            originalSettings[cbTheme] = settings[2];
+            cbTheme.SelectedItem = settings[2];
+
+            originalSettings[cbTimeFormat] = settings[3];
+            cbTimeFormat.SelectedItem = settings[3];
+
+            originalSettings[cbUpdateFrequency] = settings[4];
+            cbUpdateFrequency.SelectedItem = settings[4];
+
+            originalSettings[cbVibration] = settings[5];
+            cbVibration.SelectedItem = settings[5];
+
+            // Clear pictureboxes and reset unsaved changes
+            foreach (var pictureBox in comboBoxToPictureBoxMap.Values)
+            {
+                pictureBox.Image = null;
+            }
+
+            // Reset unsaved changes count and hide buttons
+            unsavedChangesCount = 0;
+            btnSaveChanges.Visible = false;
+            btnCancel.Visible = false;
+            UpdateUnsavedChangesUI();
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBoxToPictureBoxMap.TryGetValue(comboBox, out PictureBox pictureBox))
+            {
+                // Check if the value matches the original
+                bool isUnsaved = comboBox.SelectedItem.ToString() != originalSettings[comboBox];
+
+                if (isUnsaved != unsavedStatus[comboBox])
+                {
+                    // Update the unsaved status and count
+                    unsavedStatus[comboBox] = isUnsaved;
+                    unsavedChangesCount += isUnsaved ? 1 : -1;
+
+                    // Update the PictureBox image
+                    pictureBox.Image = isUnsaved
+                        ? (SettingsManager.Theme == "Dark" ? Properties.Resources.unsaved : Properties.Resources.unsaved)
+                        : null;
+                }
+
+                // Update the UI for all comboboxes to reflect their individual states
+                UpdateAllPictureBoxes();
+
+                // Update the main UI for unsaved changes
+                UpdateUnsavedChangesUI();
+            }
+        }
+
+        private void UpdateAllPictureBoxes()
+        {
+            foreach (var comboBox in comboBoxToPictureBoxMap.Keys)
+            {
+                if (comboBoxToPictureBoxMap.TryGetValue(comboBox, out PictureBox pictureBox))
+                {
+                    pictureBox.Image = unsavedStatus[comboBox]
+                        ? (SettingsManager.Theme == "Dark" ? Properties.Resources.unsaved : Properties.Resources.unsaved)
+                        : null;
+                }
+            }
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -98,7 +176,43 @@ namespace RemoteVehicleManager
             SettingsUpdated?.Invoke(this, EventArgs.Empty);
 
             ApplySettings();
+
+            // Update original settings and update only the PictureBoxes for unsaved changes
+            foreach (var comboBox in originalSettings.Keys.ToList())
+            {
+                // Update the original setting to the current value
+                originalSettings[comboBox] = comboBox.SelectedItem.ToString();
+
+                // If this combobox had an unsaved change, show "saved.png"
+                if (unsavedStatus[comboBox])
+                {
+                    comboBoxToPictureBoxMap[comboBox].Image = SettingsManager.Theme == "Dark"
+                        ? Properties.Resources.saved
+                        : Properties.Resources.saveddark; // Use appropriate saved image
+                }
+
+                // Reset the unsaved status for this combobox
+                unsavedStatus[comboBox] = false;
+            }
+
+            // Show save confirmation
+            lblChangesMade.Text = "Your changes have been saved";
+            lblChangesMade.ForeColor = SettingsManager.Theme == "Dark" ? Color.LightGreen : Color.Green; // Adjust color based on theme
+            lblChangesMade.Visible = true;
+
+            picChangesMade.Image = SettingsManager.Theme == "Dark"
+                ? Properties.Resources.saved
+                : Properties.Resources.saveddark; // Show saved image
+            picChangesMade.Visible = true;
+
+            // Reset unsaved changes count
+            unsavedChangesCount = 0;
+
+            // Update the main UI
+            UpdateUnsavedChangesUI();
         }
+
+
 
         private void SettingsControl_Load(object sender, EventArgs e)
         {
@@ -116,14 +230,78 @@ namespace RemoteVehicleManager
             // Apply to all other controls
             foreach (Control control in this.Controls)
             {
-                if (control.Name != "btnSaveChanges")
+                if (control.Name != "btnSaveChanges" && control.Name != "btnCancel")
                 {
                     control.BackColor = backgroundColor;
                     control.ForeColor = textColor;
+                    if (control is ComboBox && SettingsManager.Theme == "Dark")
+                    {
+                        control.BackColor = Color.Black;
+                    }
+                    else if (control is ComboBox && SettingsManager.Theme == "Light")
+                    {
+                        control.BackColor = Color.White;
+                    }
                 }
 
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Reset ComboBox values to their original settings
+            foreach (var comboBox in originalSettings.Keys)
+            {
+                comboBox.SelectedItem = originalSettings[comboBox];
+            }
+
+            // Clear all PictureBoxes and reset statuses
+            foreach (var pictureBox in comboBoxToPictureBoxMap.Values)
+            {
+                pictureBox.Image = null;
+            }
+
+            // Create a copy of the keys before modifying the dictionary
+            foreach (var comboBox in unsavedStatus.Keys.ToList())
+            {
+                unsavedStatus[comboBox] = false;
+            }
+
+            // Reset unsaved changes count
+            unsavedChangesCount = 0;
+            UpdateUnsavedChangesUI(); // This will hide buttons if no changes are present
+        }
+
+
+
+        private void UpdateUnsavedChangesUI()
+        {
+            // Show or hide buttons based on unsaved changes
+            bool hasUnsavedChanges = unsavedChangesCount > 0;
+            btnSaveChanges.Visible = hasUnsavedChanges;
+            btnCancel.Visible = hasUnsavedChanges;
+
+            if (hasUnsavedChanges)
+            {
+                lblChangesMade.Text = $"You have {unsavedChangesCount} unsaved change{(unsavedChangesCount > 1 ? "s!" : "!")}";
+                lblChangesMade.ForeColor = SettingsManager.Theme == "Dark" ? Color.OrangeRed : Color.Red; // Adjust color based on theme
+                lblChangesMade.Visible = true;
+
+                picChangesMade.Image = SettingsManager.Theme == "Dark"
+                    ? Properties.Resources.unsaved
+                    : Properties.Resources.unsaved;
+                picChangesMade.Visible = true;
+            }
+            else if (lblChangesMade.Text != "Your changes have been saved")
+            {
+                // Hide only if not showing "Your changes have been saved"
+                lblChangesMade.Visible = false;
+                picChangesMade.Image = null;
+                picChangesMade.Visible = false;
+            }
+        }
+
+
 
     }
 }
