@@ -88,6 +88,7 @@
             this.btnStartEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStartEngine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnStartEngine.UseVisualStyleBackColor = false;
+            this.btnStartEngine.Click += new System.EventHandler(this.btnStartEngine_Click);
             // 
             // imageList5
             // 
@@ -116,6 +117,7 @@
             this.btnStopEngine.Text = "Stop";
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStopEngine.UseVisualStyleBackColor = false;
+            this.btnStopEngine.Click += new System.EventHandler(this.btnStopEngine_Click);
             // 
             // imageList6
             // 

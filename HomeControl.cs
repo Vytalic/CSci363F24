@@ -16,6 +16,13 @@ namespace RemoteVehicleManager
         {
             InitializeComponent();
             this.Load += HomeControl_Load;
+
+            // Attach click events to buttons
+            btnStartEngine.Click += btnStartEngine_Click;
+            btnStopEngine.Click += btnStopEngine_Click;
+
+            btnStartEngine.Click -= btnStartEngine_Click;
+            btnStopEngine.Click -= btnStopEngine_Click;
         }
 
         private void HomeControl_Load(object sender, EventArgs e)
@@ -56,6 +63,27 @@ namespace RemoteVehicleManager
                 panel1.BackColor = Color.Black;
                 panel2.BackColor = Color.Black;
             }
+        }
+
+        private void btnStartEngine_Click(object sender, EventArgs e)
+        {
+            // Update lblEngineStatus for engine start
+            lblEngineStatus.Text = "(Started)";
+            lblEngineStatus.ForeColor = Color.Green;
+
+            // Show popup message
+            MessageBox.Show("Engine started successfully!", "Engine Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        
+
+        private void btnStopEngine_Click(object sender, EventArgs e)
+        {
+            // Update lblEngineStatus for engine stop
+            lblEngineStatus.Text = "(Stopped)";
+            lblEngineStatus.ForeColor = Color.Red;
+
+            // Show popup message
+            MessageBox.Show("Engine stopped successfully!", "Engine Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
