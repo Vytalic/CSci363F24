@@ -34,14 +34,17 @@
             this.btnEditVehicles = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnAddVehicle = new System.Windows.Forms.Button();
+            this.lblUnsavedChanges = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVehicles
             // 
             this.lblVehicles.AutoSize = true;
             this.lblVehicles.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVehicles.Location = new System.Drawing.Point(583, 0);
+            this.lblVehicles.Location = new System.Drawing.Point(570, 14);
             this.lblVehicles.Name = "lblVehicles";
             this.lblVehicles.Size = new System.Drawing.Size(270, 55);
             this.lblVehicles.TabIndex = 0;
@@ -49,12 +52,10 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(104, 121);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(109, 17);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -64,11 +65,11 @@
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(43, 85);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(853, 457);
+            this.panel1.Size = new System.Drawing.Size(797, 310);
             this.panel1.TabIndex = 6;
             // 
             // btnEditVehicles
@@ -96,24 +97,45 @@
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
             this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // btnAddVehicle
             // 
             this.btnAddVehicle.BackColor = System.Drawing.Color.LightGray;
             this.btnAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddVehicle.Location = new System.Drawing.Point(17, 26);
+            this.btnAddVehicle.Location = new System.Drawing.Point(3, 3);
             this.btnAddVehicle.Name = "btnAddVehicle";
             this.btnAddVehicle.Size = new System.Drawing.Size(115, 29);
             this.btnAddVehicle.TabIndex = 15;
             this.btnAddVehicle.Text = "Add Vehicle";
             this.btnAddVehicle.UseVisualStyleBackColor = false;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
+            // 
+            // lblUnsavedChanges
+            // 
+            this.lblUnsavedChanges.AutoSize = true;
+            this.lblUnsavedChanges.Location = new System.Drawing.Point(330, 410);
+            this.lblUnsavedChanges.Name = "lblUnsavedChanges";
+            this.lblUnsavedChanges.Size = new System.Drawing.Size(154, 13);
+            this.lblUnsavedChanges.TabIndex = 16;
+            this.lblUnsavedChanges.Text = "You have # unsaved changes!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(299, 412);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
             // 
             // VehiclesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblUnsavedChanges);
             this.Controls.Add(this.btnAddVehicle);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.btnEditVehicles);
@@ -122,6 +144,7 @@
             this.Name = "VehiclesControl";
             this.Size = new System.Drawing.Size(853, 457);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +158,7 @@
         private System.Windows.Forms.Button btnEditVehicles;
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Button btnAddVehicle;
+        private System.Windows.Forms.Label lblUnsavedChanges;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

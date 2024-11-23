@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.lblDrivers = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.btnAddDriver = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblUnsavedChanges = new System.Windows.Forms.Label();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnEditDrivers = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDrivers
@@ -47,77 +50,82 @@
             this.lblDrivers.TabIndex = 0;
             this.lblDrivers.Text = "DRIVERS";
             // 
-            // textBox1
+            // btnAddDriver
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightGray;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(108, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(260, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Fname, Lname";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAddDriver.BackColor = System.Drawing.Color.LightGray;
+            this.btnAddDriver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddDriver.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDriver.Location = new System.Drawing.Point(3, 3);
+            this.btnAddDriver.Name = "btnAddDriver";
+            this.btnAddDriver.Size = new System.Drawing.Size(115, 29);
+            this.btnAddDriver.TabIndex = 16;
+            this.btnAddDriver.Text = "Add Driver";
+            this.btnAddDriver.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // panel1
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightGray;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(108, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(260, 31);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Fname, Lname";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(88, 58);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(630, 329);
+            this.panel1.TabIndex = 17;
             // 
-            // textBox3
+            // tableLayoutPanel1
             // 
-            this.textBox3.BackColor = System.Drawing.Color.LightGray;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(108, 206);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(260, 31);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "Fname, Lname";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(115, 56);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 179);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox4
+            // pictureBox1
             // 
-            this.textBox4.BackColor = System.Drawing.Color.LightGray;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(108, 260);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(260, 31);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "Fname, Lname";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(225, 412);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
-            // textBox5
+            // lblUnsavedChanges
             // 
-            this.textBox5.BackColor = System.Drawing.Color.LightGray;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(108, 316);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(260, 31);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.Text = "Fname, Lname";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblUnsavedChanges.AutoSize = true;
+            this.lblUnsavedChanges.Location = new System.Drawing.Point(256, 410);
+            this.lblUnsavedChanges.Name = "lblUnsavedChanges";
+            this.lblUnsavedChanges.Size = new System.Drawing.Size(154, 13);
+            this.lblUnsavedChanges.TabIndex = 19;
+            this.lblUnsavedChanges.Text = "You have # unsaved changes!";
+            // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanges.Location = new System.Drawing.Point(613, 400);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(105, 53);
+            this.btnSaveChanges.TabIndex = 18;
+            this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // btnEditDrivers
             // 
             this.btnEditDrivers.BackColor = System.Drawing.Color.LightCoral;
             this.btnEditDrivers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditDrivers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditDrivers.Location = new System.Drawing.Point(729, 407);
+            this.btnEditDrivers.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditDrivers.Location = new System.Drawing.Point(724, 401);
             this.btnEditDrivers.Name = "btnEditDrivers";
-            this.btnEditDrivers.Size = new System.Drawing.Size(110, 34);
-            this.btnEditDrivers.TabIndex = 6;
+            this.btnEditDrivers.Size = new System.Drawing.Size(115, 53);
+            this.btnEditDrivers.TabIndex = 21;
             this.btnEditDrivers.Text = "Edit Drivers";
             this.btnEditDrivers.UseVisualStyleBackColor = false;
+            this.btnEditDrivers.Click += new System.EventHandler(this.btnEditDrivers_Click);
             // 
             // DriversControl
             // 
@@ -125,14 +133,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.Controls.Add(this.btnEditDrivers);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblUnsavedChanges);
+            this.Controls.Add(this.btnSaveChanges);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnAddDriver);
             this.Controls.Add(this.lblDrivers);
             this.Name = "DriversControl";
             this.Size = new System.Drawing.Size(853, 457);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,11 +151,12 @@
         #endregion
 
         private System.Windows.Forms.Label lblDrivers;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button btnAddDriver;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblUnsavedChanges;
+        private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Button btnEditDrivers;
     }
 }
