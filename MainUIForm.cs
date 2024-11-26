@@ -55,14 +55,21 @@ namespace RemoteVehicleManager
                     settingsControl.ApplySettings();
                 }
             }
-
             
 
             // Display current date
             lblCurrentDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
 
             // Set initial time
-            lblCurrentTime.Text = DateTime.Now.ToString("h:mm:ss tt");
+            if (SettingsManager.TimeFormat == "12-Hour")
+            {
+                lblCurrentTime.Text = DateTime.Now.ToString("h:mm tt");
+            }
+            else if (SettingsManager.TimeFormat == "24-Hour")
+            {
+                lblCurrentTime.Text = DateTime.Now.ToString("HH:mm");
+            }
+
 
             // Start timer for updating time
             timer1.Tick += Timer1_Tick;
@@ -71,10 +78,32 @@ namespace RemoteVehicleManager
             
         }
 
+        public string AVName
+        {
+            get => lblAVName.Text; // Get the text of lblAVName
+            set => lblAVName.Text = value; // Set the text of lblAVName
+        }
+
+        public string AVType
+        {
+            get => lblAVType.Text; // Get the text of lblAVType
+            set => lblAVType.Text = value; // Set the text of lblAVType
+        }
+
+
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
             // Update timer each second
-            lblCurrentTime.Text = DateTime.Now.ToString("h:mm:ss tt");
+            if (SettingsManager.TimeFormat == "12-Hour")
+            {
+                lblCurrentTime.Text = DateTime.Now.ToString("h:mm tt");
+            }
+            else if (SettingsManager.TimeFormat == "24-Hour")
+            {
+                lblCurrentTime.Text = DateTime.Now.ToString("HH:mm");
+            }
+
         }
 
         public void ApplySettings()
@@ -207,7 +236,7 @@ namespace RemoteVehicleManager
         private void vehicles_tab_Click(object sender, EventArgs e)
         {
             HighlightActiveButton((Button)sender); 
-            LoadControl(new VehiclesControl());
+            LoadControl(new VehiclesControl(this));
         }
 
         // Loads GPS tab on click

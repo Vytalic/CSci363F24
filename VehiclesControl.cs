@@ -24,11 +24,13 @@ namespace RemoteVehicleManager
         private int unsavedChangesCount = 0;
         private bool saveChanges = false;
         private List<string> vehiclesData = new List<string>();
+        private MainUIForm parentForm;
 
-        public VehiclesControl()
+        public VehiclesControl(MainUIForm form)
         {
             InitializeComponent();
             this.Load += VehiclesControl_Load;
+            parentForm = form;
         }
 
         public class CheckBoxTag
@@ -145,7 +147,7 @@ namespace RemoteVehicleManager
             tableLayoutPanel1.ColumnStyles.Clear();
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));  // Fixed width for PictureBox
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 300)); // Fixed width for RichTextBox
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100)); // Fixed width for Buttons
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200)); // Fixed width for Buttons
         }
 
 
@@ -280,11 +282,23 @@ namespace RemoteVehicleManager
 
         private void btnEditVehicles_Click(object sender, EventArgs e)
         {
-            // Toggle the edit mode state
+             // Toggle the edit mode state
             isEditMode = !isEditMode;
 
             // Update the button text
             btnEditVehicles.Text = isEditMode ? "Cancel" : "Edit Vehicles";
+           
+            foreach (Control control in tableLayoutPanel1.Controls)
+            {
+                if (control is Panel buttonPanel)
+                {
+                    HideSpecificButton(buttonPanel, "Set Active");
+                    HideSpecificButton(buttonPanel, "Active");
+                }
+            }
+
+
+
 
             if (isEditMode)
             {
@@ -301,6 +315,7 @@ namespace RemoteVehicleManager
                         pictureBox.Visible = true; // Show the PictureBox controls in edit mode
                     }
                 }
+
 
                 // Show unsaved changes label and picture if there are unsaved changes
                 if (unsavedChangesCount > 0)
@@ -320,6 +335,10 @@ namespace RemoteVehicleManager
                 // Exiting edit mode
                 btnSaveChanges.Visible = false;
                 btnAddVehicle.Visible = false;
+                
+
+
+
 
                 // Hide all PictureBox controls in column 1
                 foreach (Control control in tableLayoutPanel1.Controls)
@@ -368,8 +387,12 @@ namespace RemoteVehicleManager
                     pictureBox1.Visible = false;
                     refreshTable(); // Reload the original state
                 }
+
             }
         }
+
+       
+
 
 
 
@@ -633,7 +656,7 @@ namespace RemoteVehicleManager
 
         private void AddVehicleRow(string vehicleName, string vehicleDetails, string fuelType)
         {
-            // Create the PictureBox
+            // Create a PictureBox
             var checkBox = new PictureBox
             {
                 Width = 25,
@@ -664,6 +687,70 @@ namespace RemoteVehicleManager
                 Height = richTextBox.Height,
                 Visible = false // Initially hidden
             };
+
+            // Add the "Set Active" button
+            var setActiveButton = new Button
+            {
+                Text = "Set Active",
+                Tag = "SetActive",
+                Dock = DockStyle.Top,
+                Height = 30,
+                FlatStyle = FlatStyle.Flat, // Style the button
+                BackColor = Color.LightBlue, // Background color
+                ForeColor = Color.Black, // Text color
+                Font = new Font ("Microsoft Tai Le", 12, FontStyle.Regular)
+            };
+            setActiveButton.FlatAppearance.BorderSize = 0; // Remove the border
+
+            // Check if this row's vehicle name matches parentForm.AVName
+            if (vehicleName == parentForm.AVName)
+            {
+                setActiveButton.Font = new Font("Microsoft Tai Le", 12, FontStyle.Bold);
+                
+                // Mark the button as active
+                setActiveButton.Text = "Active";
+                setActiveButton.BackColor = Color.Green;
+                setActiveButton.ForeColor = Color.White;
+                
+            }
+
+            setActiveButton.Click += (s, e) =>
+            {
+                // Reset all "Set Active" buttons in the tableLayoutPanel
+                foreach (Control control in tableLayoutPanel1.Controls)
+                {
+                    if (control is Panel panel)
+                    {
+                        foreach (Control buttonControl in panel.Controls)
+                        {
+                            if (buttonControl is Button otherButton && otherButton.Text == "Active")
+                            {
+                                otherButton.Text = "Set Active";
+                                otherButton.BackColor = Color.LightBlue; // Reset to default button color
+                                otherButton.ForeColor = Color.Black; // Reset text color
+                            }
+                        }
+                    }
+                }
+
+                // Update MainUIForm's properties
+                parentForm.AVName = $"{vehicleName}";
+                parentForm.AVType = $"{vehicleDetails}";
+
+                // Update the clicked button's appearance
+                var button = s as Button;
+                if (button != null)
+                {
+                    button.Text = "Active"; // Change button text
+                    button.BackColor = Color.Green; // Change background color to green
+                    button.ForeColor = Color.White; // Change text color to white
+                }
+
+                // Show a confirmation message
+                MessageBox.Show($"Active Vehicle set to: {vehicleName}", "Action Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            };
+
+
 
             var modifyButton = new Button
             {
@@ -959,6 +1046,12 @@ namespace RemoteVehicleManager
 
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(modifyButton);
+            buttonPanel.Controls.Add(setActiveButton);
+            buttonPanel.Visible = true;
+
+            modifyButton.Visible = false;
+            deleteButton.Visible = false;
+
 
             // Assign the Tag with a new CheckBoxTag object
             checkBox.Tag = new CheckBoxTag
@@ -971,6 +1064,13 @@ namespace RemoteVehicleManager
             checkBox.Click += (s, e) =>
             {
                 ToggleCheckBoxState(checkBox);
+                // Reset button visibility to "Set Active" when the panel is shown
+                if (checkBox.Tag is CheckBoxTag tag)
+                {
+                    modifyButton.Visible = true;
+                    deleteButton.Visible = true;
+                }
+
             };
 
             // Add controls to the TableLayoutPanel
@@ -979,6 +1079,20 @@ namespace RemoteVehicleManager
             tableLayoutPanel1.Controls.Add(checkBox, 0, tableLayoutPanel1.RowCount - 1);
             tableLayoutPanel1.Controls.Add(richTextBox, 1, tableLayoutPanel1.RowCount - 1);
             tableLayoutPanel1.Controls.Add(buttonPanel, 2, tableLayoutPanel1.RowCount - 1);
+        }
+
+
+        private void HideSpecificButton(Panel buttonPanel, string buttonTextToHide)
+        {
+            foreach (Control control in buttonPanel.Controls)
+            {
+                if (control is Button button && button.Text == buttonTextToHide)
+                {
+                    button.Visible = false; // Hide the specific button
+                    Console.WriteLine($"Hiding button with text: {button.Text}");
+                    break; 
+                }
+            }
         }
 
         private void RefreshAllRowStyles()

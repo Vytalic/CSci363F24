@@ -66,7 +66,7 @@
             "Installation Date"});
             this.comboBox1.Location = new System.Drawing.Point(160, 84);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.Size = new System.Drawing.Size(149, 28);
             this.comboBox1.TabIndex = 2;
             // 
             // HistoryControl

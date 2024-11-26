@@ -44,6 +44,13 @@
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.lblOutsideT = new System.Windows.Forms.Label();
+            this.lblInsideT = new System.Windows.Forms.Label();
+            this.lblOutsideTemp = new System.Windows.Forms.Label();
+            this.lblInsideTemp = new System.Windows.Forms.Label();
+            this.lblTemp = new System.Windows.Forms.Label();
+            this.lblAVType = new System.Windows.Forms.Label();
+            this.lblAVName = new System.Windows.Forms.Label();
             this.HorizontalBar = new System.Windows.Forms.Panel();
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.lblCurrentDate = new System.Windows.Forms.Label();
@@ -337,6 +344,13 @@
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.TopPanel.Controls.Add(this.lblOutsideT);
+            this.TopPanel.Controls.Add(this.lblInsideT);
+            this.TopPanel.Controls.Add(this.lblOutsideTemp);
+            this.TopPanel.Controls.Add(this.lblInsideTemp);
+            this.TopPanel.Controls.Add(this.lblTemp);
+            this.TopPanel.Controls.Add(this.lblAVType);
+            this.TopPanel.Controls.Add(this.lblAVName);
             this.TopPanel.Controls.Add(this.HorizontalBar);
             this.TopPanel.Controls.Add(this.lblCurrentTime);
             this.TopPanel.Controls.Add(this.lblCurrentDate);
@@ -345,6 +359,76 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(853, 100);
             this.TopPanel.TabIndex = 0;
+            // 
+            // lblOutsideT
+            // 
+            this.lblOutsideT.AutoSize = true;
+            this.lblOutsideT.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutsideT.Location = new System.Drawing.Point(784, 62);
+            this.lblOutsideT.Name = "lblOutsideT";
+            this.lblOutsideT.Size = new System.Drawing.Size(52, 21);
+            this.lblOutsideT.TabIndex = 9;
+            this.lblOutsideT.Text = "label2";
+            // 
+            // lblInsideT
+            // 
+            this.lblInsideT.AutoSize = true;
+            this.lblInsideT.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInsideT.Location = new System.Drawing.Point(784, 38);
+            this.lblInsideT.Name = "lblInsideT";
+            this.lblInsideT.Size = new System.Drawing.Size(52, 21);
+            this.lblInsideT.TabIndex = 8;
+            this.lblInsideT.Text = "label1";
+            // 
+            // lblOutsideTemp
+            // 
+            this.lblOutsideTemp.AutoSize = true;
+            this.lblOutsideTemp.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutsideTemp.Location = new System.Drawing.Point(711, 62);
+            this.lblOutsideTemp.Name = "lblOutsideTemp";
+            this.lblOutsideTemp.Size = new System.Drawing.Size(67, 21);
+            this.lblOutsideTemp.TabIndex = 7;
+            this.lblOutsideTemp.Text = "Outside:";
+            // 
+            // lblInsideTemp
+            // 
+            this.lblInsideTemp.AutoSize = true;
+            this.lblInsideTemp.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInsideTemp.Location = new System.Drawing.Point(722, 38);
+            this.lblInsideTemp.Name = "lblInsideTemp";
+            this.lblInsideTemp.Size = new System.Drawing.Size(54, 21);
+            this.lblInsideTemp.TabIndex = 6;
+            this.lblInsideTemp.Text = "Inside:";
+            // 
+            // lblTemp
+            // 
+            this.lblTemp.AutoSize = true;
+            this.lblTemp.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemp.Location = new System.Drawing.Point(716, 8);
+            this.lblTemp.Name = "lblTemp";
+            this.lblTemp.Size = new System.Drawing.Size(125, 23);
+            this.lblTemp.TabIndex = 5;
+            this.lblTemp.Text = "Temperature";
+            // 
+            // lblAVType
+            // 
+            this.lblAVType.AutoSize = true;
+            this.lblAVType.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAVType.Location = new System.Drawing.Point(10, 49);
+            this.lblAVType.Name = "lblAVType";
+            this.lblAVType.Size = new System.Drawing.Size(154, 29);
+            this.lblAVType.TabIndex = 4;
+            this.lblAVType.Text = "Vehicle Type";
+            // 
+            // lblAVName
+            // 
+            this.lblAVName.AutoSize = true;
+            this.lblAVName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAVName.Location = new System.Drawing.Point(6, 8);
+            this.lblAVName.Name = "lblAVName";
+            this.lblAVName.Size = new System.Drawing.Size(236, 39);
+            this.lblAVName.TabIndex = 3;
+            this.lblAVName.Text = "Active Vehicle";
             // 
             // HorizontalBar
             // 
@@ -358,7 +442,7 @@
             // 
             this.lblCurrentTime.AutoSize = true;
             this.lblCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentTime.Location = new System.Drawing.Point(316, 45);
+            this.lblCurrentTime.Location = new System.Drawing.Point(355, 44);
             this.lblCurrentTime.Name = "lblCurrentTime";
             this.lblCurrentTime.Size = new System.Drawing.Size(220, 39);
             this.lblCurrentTime.TabIndex = 1;
@@ -369,7 +453,7 @@
             // 
             this.lblCurrentDate.AutoSize = true;
             this.lblCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentDate.Location = new System.Drawing.Point(306, 9);
+            this.lblCurrentDate.Location = new System.Drawing.Point(311, 8);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Size = new System.Drawing.Size(148, 29);
             this.lblCurrentDate.TabIndex = 0;
@@ -750,6 +834,13 @@
         private System.Windows.Forms.Label lblEngineStatus;
         private System.Windows.Forms.Label lblWindowsStatus;
         private System.Windows.Forms.Label lblDoorsStatus;
+        private System.Windows.Forms.Label lblOutsideT;
+        private System.Windows.Forms.Label lblInsideT;
+        private System.Windows.Forms.Label lblOutsideTemp;
+        private System.Windows.Forms.Label lblInsideTemp;
+        private System.Windows.Forms.Label lblTemp;
+        private System.Windows.Forms.Label lblAVType;
+        private System.Windows.Forms.Label lblAVName;
     }
 }
 
