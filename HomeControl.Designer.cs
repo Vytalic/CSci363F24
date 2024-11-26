@@ -152,6 +152,7 @@
             this.btnActivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnActivateAlarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnActivateAlarm.UseVisualStyleBackColor = false;
+            this.btnActivateAlarm.Click += new System.EventHandler(this.btnActivateAlarm_Click);
             // 
             // btnDeactivateAlarm
             // 
@@ -169,6 +170,7 @@
             this.btnDeactivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeactivateAlarm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDeactivateAlarm.UseVisualStyleBackColor = false;
+            this.btnDeactivateAlarm.Click += new System.EventHandler(this.btnDeactivateAlarm_Click);
             // 
             // lblAlarm
             // 
@@ -208,6 +210,7 @@
             this.btnLockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLockDoor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLockDoor.UseVisualStyleBackColor = false;
+            this.btnLockDoor.Click += new System.EventHandler(this.btnLockDoor_Click);
             // 
             // btnUnlockDoor
             // 
@@ -224,6 +227,7 @@
             this.btnUnlockDoor.Text = "Unlock";
             this.btnUnlockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUnlockDoor.UseVisualStyleBackColor = false;
+            this.btnUnlockDoor.Click += new System.EventHandler(this.btnUnlockDoor_Click);
             // 
             // btnCloseWindows
             // 
@@ -240,6 +244,7 @@
             this.btnCloseWindows.Text = "Close";
             this.btnCloseWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCloseWindows.UseVisualStyleBackColor = false;
+            this.btnCloseWindows.Click += new System.EventHandler(this.btnCloseWindows_Click);
             // 
             // btnOpenWindows
             // 
@@ -257,6 +262,7 @@
             this.btnOpenWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOpenWindows.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnOpenWindows.UseVisualStyleBackColor = false;
+            this.btnOpenWindows.Click += new System.EventHandler(this.btnOpenWindows_Click);
             // 
             // lblWindows
             // 
@@ -311,41 +317,45 @@
             // 
             this.lblWindowsStatus.AutoSize = true;
             this.lblWindowsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindowsStatus.Location = new System.Drawing.Point(695, 280);
+            this.lblWindowsStatus.Location = new System.Drawing.Point(689, 283);
             this.lblWindowsStatus.Name = "lblWindowsStatus";
             this.lblWindowsStatus.Size = new System.Drawing.Size(66, 20);
             this.lblWindowsStatus.TabIndex = 35;
             this.lblWindowsStatus.Text = "(Status)";
+            this.lblWindowsStatus.Visible = false;
             // 
             // lblDoorsStatus
             // 
             this.lblDoorsStatus.AutoSize = true;
             this.lblDoorsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoorsStatus.Location = new System.Drawing.Point(269, 280);
+            this.lblDoorsStatus.Location = new System.Drawing.Point(261, 283);
             this.lblDoorsStatus.Name = "lblDoorsStatus";
             this.lblDoorsStatus.Size = new System.Drawing.Size(66, 20);
             this.lblDoorsStatus.TabIndex = 34;
             this.lblDoorsStatus.Text = "(Status)";
+            this.lblDoorsStatus.Visible = false;
             // 
             // lblAlarmStatus
             // 
             this.lblAlarmStatus.AutoSize = true;
             this.lblAlarmStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarmStatus.Location = new System.Drawing.Point(632, 48);
+            this.lblAlarmStatus.Location = new System.Drawing.Point(619, 43);
             this.lblAlarmStatus.Name = "lblAlarmStatus";
             this.lblAlarmStatus.Size = new System.Drawing.Size(66, 20);
             this.lblAlarmStatus.TabIndex = 33;
             this.lblAlarmStatus.Text = "(Status)";
+            this.lblAlarmStatus.Visible = false;
             // 
             // lblEngineStatus
             // 
             this.lblEngineStatus.AutoSize = true;
             this.lblEngineStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngineStatus.Location = new System.Drawing.Point(292, 48);
+            this.lblEngineStatus.Location = new System.Drawing.Point(284, 43);
             this.lblEngineStatus.Name = "lblEngineStatus";
             this.lblEngineStatus.Size = new System.Drawing.Size(66, 20);
             this.lblEngineStatus.TabIndex = 32;
             this.lblEngineStatus.Text = "(Status)";
+            this.lblEngineStatus.Visible = false;
             // 
             // HomeControl
             // 

@@ -61,6 +61,7 @@
             this.btnAddDriver.TabIndex = 16;
             this.btnAddDriver.Text = "Add Driver";
             this.btnAddDriver.UseVisualStyleBackColor = false;
+            this.btnAddDriver.Click += new System.EventHandler(this.btnAddDriver_Click);
             // 
             // panel1
             // 

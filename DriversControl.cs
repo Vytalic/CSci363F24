@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace RemoteVehicleManager
 {
     public partial class DriversControl : UserControl
@@ -18,6 +19,8 @@ namespace RemoteVehicleManager
         private List<string> originalState = new List<string>();
         private bool isEditMode = false;
         private int unsavedChangesCount = 0;
+        private List<string> updatedDriversData = new List<string>();
+
 
 
         public DriversControl()
@@ -31,8 +34,8 @@ namespace RemoteVehicleManager
             ApplySettings();
             ConfigureTableLayoutPanel();
             LoadDriversData("driversData.txt");
-
-            btnAddDriver.Visible = false; // Initially hidden
+            updatedDriversData = new List<string>(driversData);
+            btnAddDriver.Visible = false;
             lblUnsavedChanges.Visible = false;
         }
 
@@ -90,12 +93,13 @@ namespace RemoteVehicleManager
             tableLayoutPanel1.RowStyles.Clear();
             tableLayoutPanel1.RowCount = 0;
             driversData.Clear();
-            originalState.Clear();
 
             if (!File.Exists(filePath))
             {
                 // Create a file with default data if it doesn't exist
                 File.WriteAllText(filePath, "John, Doe\nJane, Smith\nMichael, Johnson");
+                
+
             }
 
             var lines = File.ReadAllLines(filePath);
@@ -104,7 +108,6 @@ namespace RemoteVehicleManager
                 if (!string.IsNullOrWhiteSpace(line))
                 {
                     driversData.Add(line);
-                    originalState.Add(line);
 
                     var parts = line.Split(',');
                     if (parts.Length == 2)
@@ -125,10 +128,10 @@ namespace RemoteVehicleManager
                 Width = 50,
                 Height = 50,
                 Image = Properties.Resources.unchecked_dark,
-                Tag = false, // Initially unchecked
+                Tag = false,
                 Cursor = Cursors.Hand,
                 Margin = new Padding(10),
-                Visible = false // Ensure it is hidden initially
+                Visible = false
             };
 
             // Label for the second column (driver name)
@@ -224,7 +227,7 @@ namespace RemoteVehicleManager
                 FlatStyle = FlatStyle.Flat
             };
 
-            // Modify button functionality: Hide btnEditDrivers
+            // Modify button functionality to Hide btnEditDrivers
             modifyButton.Click += (s, e) =>
             {
                 btnEditDrivers.Visible = false; // Hide the Edit Drivers button
@@ -279,7 +282,7 @@ namespace RemoteVehicleManager
             // Replace Label with TextBox in the table
             tableLayoutPanel1.Controls.Remove(label);
             tableLayoutPanel1.Controls.Add(textBox, 1, rowIndex);
-            textBox.Focus(); // Focus on the TextBox for immediate editing
+            textBox.Focus(); // Focus on the TextBox for editing
 
             // Destroy the old buttons (Modify and Delete)
             var buttonPanel = tableLayoutPanel1.Controls.Cast<Control>()
@@ -321,41 +324,16 @@ namespace RemoteVehicleManager
             {
                 if (!string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    // Update the label text
-                    label.Text = textBox.Text;
-                    driversData[rowIndex] = textBox.Text; // Update the data source
+                    
+                    RestoreRowControls(rowIndex, textBox, label);
+                    tableLayoutPanel1.Controls.Remove(newButtonPanel);
+                    btnEditDrivers.Visible = true;
+                    UpdateDriverData("modify", rowIndex, textBox.Text);
+                    SaveUpdatedDriversDataToFile();
 
-                    // Update unsaved changes count
-                    unsavedChangesCount++;
-                    UpdateUnsavedChangesLabel($"You have {unsavedChangesCount} unsaved changes!", Color.Red);
-
-                    // Find the PictureBox in column 3 (Unsaved Indicator) and update its image and tag
-                    var unsavedIndicator = tableLayoutPanel1.Controls.Cast<Control>()
-                        .FirstOrDefault(c => tableLayoutPanel1.GetRow(c) == rowIndex && c is PictureBox && tableLayoutPanel1.GetColumn(c) == 2) as PictureBox;
-
-                    if (unsavedIndicator != null)
-                    {
-                        unsavedIndicator.Image = Properties.Resources.unsaved; // Set to "unsaved.png"
-                        unsavedIndicator.Tag = "unsaved"; // Set the tag
-                        unsavedIndicator.Visible = true; // Ensure it's visible
-                    }
                 }
-
-                // Restore the row's controls and reset the PictureBox
-                RestoreRowControls(rowIndex, textBox, label);
-
-                // Destroy the Apply/Cancel button panel
-                tableLayoutPanel1.Controls.Remove(newButtonPanel);
-
-                // Make btnEditDrivers visible again
-                btnEditDrivers.Visible = true;
             };
 
-
-
-
-
-            // Cancel button functionality
             cancelButton.Click += (s, e) =>
             {
                 // Restore the original text in the label
@@ -378,7 +356,6 @@ namespace RemoteVehicleManager
 
             UpdateRowHeights();
         }
-
 
         private void RestoreRowControls(int rowIndex, TextBox textBox, Label label)
         {
@@ -406,7 +383,6 @@ namespace RemoteVehicleManager
             }
         }
 
-
         private void UpdateRowHeights()
         {
             int maxHeight = tableLayoutPanel1.Controls.Cast<Control>()
@@ -429,8 +405,6 @@ namespace RemoteVehicleManager
             }
         }
 
-
-
         private void DeleteDriver(int rowIndex)
         {
             var dialogResult = MessageBox.Show("Are you sure you want to delete this driver?", "Confirm Delete",
@@ -438,40 +412,53 @@ namespace RemoteVehicleManager
 
             if (dialogResult == DialogResult.Yes)
             {
-                // Find and remove all controls in the specified row
-                var controlsToRemove = tableLayoutPanel1.Controls.Cast<Control>()
-                    .Where(c => tableLayoutPanel1.GetRow(c) == rowIndex)
-                    .ToList();
-
-                foreach (var control in controlsToRemove)
-                {
-                    tableLayoutPanel1.Controls.Remove(control);
-                }
-
-                // Remove the driver data associated with the row
-                var label = controlsToRemove.OfType<Label>().FirstOrDefault();
-                if (label != null)
-                {
-                    driversData.Remove(label.Text);
-                }
-
-                unsavedChangesCount++;
-                UpdateUnsavedChangesLabel($"You have {unsavedChangesCount} unsaved changes!", Color.Red);
-
-                // Reorganize rows to account for the removed row
-                for (int i = rowIndex + 1; i < tableLayoutPanel1.RowCount; i++)
-                {
-                    foreach (Control control in tableLayoutPanel1.Controls.Cast<Control>()
-                        .Where(c => tableLayoutPanel1.GetRow(c) == i))
-                    {
-                        tableLayoutPanel1.SetRow(control, i - 1);
-                    }
-                }
-
-                tableLayoutPanel1.RowCount--;
+                UpdateDriverData("delete", rowIndex);
+                SaveUpdatedDriversDataToFile();
             }
         }
 
+
+
+        private void SaveUpdatedDriversDataToFile()
+        {
+            try
+            {
+                // Format user input into "firstname, lastname" format
+                var formattedData = updatedDriversData.Select(data =>
+                {
+                    data = data.Replace(",", "").Trim();
+
+                    // Split the input by spaces
+                    var parts = data.Split(' ');
+
+                    if (parts.Length >= 2)
+                    {
+                        string firstName = parts[0].Trim();
+                        string lastName = parts[1].Trim();
+
+                        // Ensure "firstname, lastname" format
+                        return $"{firstName}, {lastName}";
+                    }
+                    else
+                    {
+                        string firstname = parts[0].Trim();
+                        string lastName = " ";
+                        return $"{firstname}, {lastName}";
+                    }
+                }).ToList();
+
+                // Write the formatted data to the file
+                File.WriteAllLines("driversData.txt", formattedData);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Error formatting data: {ex.Message}", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving changes to file: {ex.Message}", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnEditDrivers_Click(object sender, EventArgs e)
         {
@@ -481,6 +468,7 @@ namespace RemoteVehicleManager
             {
                 // Enter edit mode
                 originalState = new List<string>(driversData); // Backup original data
+
                 btnEditDrivers.Text = "Cancel";
                 btnSaveChanges.Visible = true;
 
@@ -489,17 +477,23 @@ namespace RemoteVehicleManager
             else
             {
                 // Exit edit mode (cancel changes)
-                driversData = new List<string>(originalState); // Revert to original state
-                ReloadDriversData(); // Refresh UI with original data
+                updatedDriversData = new List<string>(originalState); // Revert to original state
+
+                SaveUpdatedDriversDataToFile();
                 btnEditDrivers.Text = "Edit Drivers";
                 btnSaveChanges.Visible = false;
 
                 // Reset unsaved changes count
                 unsavedChangesCount = 0;
                 UpdateUnsavedChangesLabel("", Color.Black); // Clear the label text
+
+                // Ensure all images in column 3 are hidden after reload
+                HideColumn3Images();
+
+                LoadDriversData("driversData.txt");
             }
 
-            // Update the visibility of checkboxes, button panels, and column 3 images
+            // Update the visibility of checkboxes and button panels
             foreach (Control control in tableLayoutPanel1.Controls.Cast<Control>().ToList())
             {
                 if (control is PictureBox pictureBox)
@@ -510,11 +504,6 @@ namespace RemoteVehicleManager
                     {
                         // Toggle visibility of checkboxes in column 0
                         pictureBox.Visible = isEditMode;
-                    }
-                    else if (column == 2)
-                    {
-                        // Hide images in column 3
-                        pictureBox.Visible = !isEditMode;
                     }
                 }
 
@@ -528,6 +517,16 @@ namespace RemoteVehicleManager
             btnAddDriver.Visible = isEditMode;
         }
 
+        private void HideColumn3Images()
+        {
+            foreach (var control in tableLayoutPanel1.Controls.Cast<Control>())
+            {
+                if (control is PictureBox pictureBox && tableLayoutPanel1.GetColumn(pictureBox) == 2)
+                {
+                    pictureBox.Visible = false; //  hide images in column 3
+                }
+            }
+        }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
@@ -538,7 +537,7 @@ namespace RemoteVehicleManager
                     var parts = data.Split(' ');
                     if (parts.Length == 2)
                     {
-                        return $"{parts[0]},{parts[1]}";
+                        return $"{parts[0]}, {parts[1]}";
                     }
                 }
                 return data;
@@ -584,30 +583,6 @@ namespace RemoteVehicleManager
             }
         }
 
-
-
-        private void ReloadDriversData()
-        {
-            tableLayoutPanel1.Controls.Clear(); // Clear existing rows
-            tableLayoutPanel1.RowStyles.Clear();
-            tableLayoutPanel1.RowCount = 0;
-
-            foreach (var line in driversData)
-            {
-                if (!string.IsNullOrWhiteSpace(line))
-                {
-                    var parts = line.Split(',');
-                    if (parts.Length == 2)
-                    {
-                        string firstName = parts[0].Trim();
-                        string lastName = parts[1].Trim();
-                        AddDriverRow(firstName, lastName);
-                    }
-                }
-            }
-        }
-
-
         private void UpdateUnsavedChangesLabel(string text, Color color)
         {
             lblUnsavedChanges.Visible = true; // Ensure the label is visible
@@ -616,8 +591,194 @@ namespace RemoteVehicleManager
             lblUnsavedChanges.Font = new Font(lblUnsavedChanges.Font.FontFamily, 14, FontStyle.Bold);
         }
 
+        private void UpdateDriverData(string action, int rowIndex, string newValue = null)
+        {
+            if (rowIndex < 0 || rowIndex >= driversData.Count)
+            {
+                MessageBox.Show("Invalid row index.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            string originalValue = driversData[rowIndex];
 
+            if (action == "delete")
+            {
+                // Remove data from all relevant lists
+                driversData.RemoveAt(rowIndex);
+                updatedDriversData.Remove(originalValue);
 
+                // Remove the row from the UI
+                var controlsToRemove = tableLayoutPanel1.Controls.Cast<Control>()
+                    .Where(c => tableLayoutPanel1.GetRow(c) == rowIndex)
+                    .ToList();
+
+                foreach (var control in controlsToRemove)
+                {
+                    tableLayoutPanel1.Controls.Remove(control);
+                }
+
+                // Reorganize rows for the removed row
+                for (int i = rowIndex + 1; i < tableLayoutPanel1.RowCount; i++)
+                {
+                    foreach (Control control in tableLayoutPanel1.Controls.Cast<Control>()
+                        .Where(c => tableLayoutPanel1.GetRow(c) == i))
+                    {
+                        tableLayoutPanel1.SetRow(control, i - 1);
+                    }
+                }
+
+                tableLayoutPanel1.RowCount--;
+                unsavedChangesCount++;
+            }
+            else if (action == "modify" && newValue != null)
+            {
+                // Update data in all lists
+                driversData[rowIndex] = newValue;
+                updatedDriversData[rowIndex] = newValue;
+
+                // Update the UI
+                var label = tableLayoutPanel1.Controls.Cast<Control>()
+                    .FirstOrDefault(c => tableLayoutPanel1.GetRow(c) == rowIndex && c is Label) as Label;
+
+                if (label != null)
+                {
+                    label.Text = newValue;
+                }
+
+                unsavedChangesCount++;
+            }
+            else
+            {
+                MessageBox.Show("Invalid action or parameters.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            UpdateUnsavedChangesLabel($"You have {unsavedChangesCount} unsaved changes!", Color.Red);
+        }
+
+        private void btnAddDriver_Click(object sender, EventArgs e)
+        {
+            // Create a new row in the TableLayoutPanel
+            int rowIndex = tableLayoutPanel1.RowCount++;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 60));
+
+            var checkBox = new PictureBox
+            {
+                Width = 50,
+                Height = 50,
+                Image = Properties.Resources.unchecked_dark,
+                Tag = false,
+                Cursor = Cursors.Hand,
+                Margin = new Padding(10),
+                Visible = false
+            };
+
+            // Add TextBox for editable input
+            var textBox = new TextBox
+            {
+                Text = "Enter first and last name",
+                ForeColor = Color.Gray,
+                Width = 200,
+                Height = 40,
+                Font = new Font("Arial", 14, FontStyle.Italic),
+                BackColor = Color.LightYellow,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            // focus and placeholder behavior
+            textBox.GotFocus += (s, a) =>
+            {
+                if (textBox.Text == "Enter first and last name")
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                    textBox.Font = new Font("Arial", 14, FontStyle.Regular);
+                }
+            };
+
+            textBox.LostFocus += (s, a) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = "Enter first and last name";
+                    textBox.ForeColor = Color.Gray;
+                    textBox.Font = new Font("Arial", 14, FontStyle.Italic);
+                }
+            };
+
+            // Add unsaved indicator
+            var unsavedIndicator = new PictureBox
+            {
+                Width = 50,
+                Height = 50,
+                Image = Properties.Resources.unsaved,
+                Visible = false,
+                Margin = new Padding(10)
+            };
+
+            // Create Save Button
+            var saveButton = new Button
+            {
+                Text = "Apply",
+                BackColor = Color.LightGreen,
+                AutoSize = true,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            saveButton.Click += (s, a) =>
+            {
+                if (!string.IsNullOrWhiteSpace(textBox.Text) && textBox.Text != "Enter first and last name")
+                {
+                    var parts = textBox.Text.Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length >= 2)
+                    {
+                        string firstName = parts[0];
+                        string lastName = parts[1];
+                        string newDriver = $"{firstName}, {lastName}";
+
+                        driversData.Add(newDriver);
+                        updatedDriversData.Add(newDriver);
+
+                        // Replace TextBox with a Label
+                        var label = new Label
+                        {
+                            Text = newDriver,
+                            AutoSize = false,
+                            TextAlign = ContentAlignment.MiddleLeft,
+                            Font = new Font("Arial", 14, FontStyle.Bold),
+                            BackColor = Color.LightGray,
+                            ForeColor = Color.Black,
+                            BorderStyle = BorderStyle.FixedSingle,
+                            Width = textBox.Width,
+                            Height = textBox.Height
+                        };
+
+                        tableLayoutPanel1.Controls.Remove(textBox);
+                        tableLayoutPanel1.Controls.Add(label, 1, rowIndex);
+
+                        // Hide Save Button and show unsaved indicator
+                        saveButton.Visible = false;
+                        unsavedIndicator.Visible = true;
+
+                        // Update unsaved changes count
+                        unsavedChangesCount++;
+                        UpdateUnsavedChangesLabel($"You have {unsavedChangesCount} unsaved changes!", Color.Red);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter both a first and last name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            };
+
+            // Add controls to the TableLayoutPanel
+            tableLayoutPanel1.Controls.Add(checkBox, 0, rowIndex);
+            tableLayoutPanel1.Controls.Add(textBox, 1, rowIndex);
+            tableLayoutPanel1.Controls.Add(unsavedIndicator, 2, rowIndex);
+            tableLayoutPanel1.Controls.Add(saveButton, 3, rowIndex);
+
+            // Set focus to the TextBox
+            textBox.Focus();
+        }
     }
 }

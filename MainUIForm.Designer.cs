@@ -48,6 +48,10 @@
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.MainContent = new System.Windows.Forms.Panel();
+            this.lblWindowsStatus = new System.Windows.Forms.Label();
+            this.lblDoorsStatus = new System.Windows.Forms.Label();
+            this.lblAlarmStatus = new System.Windows.Forms.Label();
+            this.lblEngineStatus = new System.Windows.Forms.Label();
             this.btnCloseWindows = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnOpenWindows = new System.Windows.Forms.Button();
@@ -67,10 +71,6 @@
             this.VerticalBar = new System.Windows.Forms.Splitter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drkIcons = new System.Windows.Forms.ImageList(this.components);
-            this.lblEngineStatus = new System.Windows.Forms.Label();
-            this.lblAlarmStatus = new System.Windows.Forms.Label();
-            this.lblDoorsStatus = new System.Windows.Forms.Label();
-            this.lblWindowsStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -403,6 +403,42 @@
             this.MainContent.Size = new System.Drawing.Size(853, 457);
             this.MainContent.TabIndex = 0;
             // 
+            // lblWindowsStatus
+            // 
+            this.lblWindowsStatus.AutoSize = true;
+            this.lblWindowsStatus.Location = new System.Drawing.Point(706, 283);
+            this.lblWindowsStatus.Name = "lblWindowsStatus";
+            this.lblWindowsStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblWindowsStatus.TabIndex = 31;
+            this.lblWindowsStatus.Text = "(Status)";
+            // 
+            // lblDoorsStatus
+            // 
+            this.lblDoorsStatus.AutoSize = true;
+            this.lblDoorsStatus.Location = new System.Drawing.Point(280, 283);
+            this.lblDoorsStatus.Name = "lblDoorsStatus";
+            this.lblDoorsStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblDoorsStatus.TabIndex = 30;
+            this.lblDoorsStatus.Text = "(Status)";
+            // 
+            // lblAlarmStatus
+            // 
+            this.lblAlarmStatus.AutoSize = true;
+            this.lblAlarmStatus.Location = new System.Drawing.Point(643, 51);
+            this.lblAlarmStatus.Name = "lblAlarmStatus";
+            this.lblAlarmStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblAlarmStatus.TabIndex = 29;
+            this.lblAlarmStatus.Text = "(Status)";
+            // 
+            // lblEngineStatus
+            // 
+            this.lblEngineStatus.AutoSize = true;
+            this.lblEngineStatus.Location = new System.Drawing.Point(303, 51);
+            this.lblEngineStatus.Name = "lblEngineStatus";
+            this.lblEngineStatus.Size = new System.Drawing.Size(43, 13);
+            this.lblEngineStatus.TabIndex = 28;
+            this.lblEngineStatus.Text = "(Status)";
+            // 
             // btnCloseWindows
             // 
             this.btnCloseWindows.BackColor = System.Drawing.Color.LightCoral;
@@ -641,42 +677,6 @@
             this.drkIcons.Images.SetKeyName(4, "drksettings.png");
             this.drkIcons.Images.SetKeyName(5, "drktime-past.png");
             this.drkIcons.Images.SetKeyName(6, "drkuser.png");
-            // 
-            // lblEngineStatus
-            // 
-            this.lblEngineStatus.AutoSize = true;
-            this.lblEngineStatus.Location = new System.Drawing.Point(303, 51);
-            this.lblEngineStatus.Name = "lblEngineStatus";
-            this.lblEngineStatus.Size = new System.Drawing.Size(43, 13);
-            this.lblEngineStatus.TabIndex = 28;
-            this.lblEngineStatus.Text = "(Status)";
-            // 
-            // lblAlarmStatus
-            // 
-            this.lblAlarmStatus.AutoSize = true;
-            this.lblAlarmStatus.Location = new System.Drawing.Point(643, 51);
-            this.lblAlarmStatus.Name = "lblAlarmStatus";
-            this.lblAlarmStatus.Size = new System.Drawing.Size(43, 13);
-            this.lblAlarmStatus.TabIndex = 29;
-            this.lblAlarmStatus.Text = "(Status)";
-            // 
-            // lblDoorsStatus
-            // 
-            this.lblDoorsStatus.AutoSize = true;
-            this.lblDoorsStatus.Location = new System.Drawing.Point(280, 283);
-            this.lblDoorsStatus.Name = "lblDoorsStatus";
-            this.lblDoorsStatus.Size = new System.Drawing.Size(43, 13);
-            this.lblDoorsStatus.TabIndex = 30;
-            this.lblDoorsStatus.Text = "(Status)";
-            // 
-            // lblWindowsStatus
-            // 
-            this.lblWindowsStatus.AutoSize = true;
-            this.lblWindowsStatus.Location = new System.Drawing.Point(706, 283);
-            this.lblWindowsStatus.Name = "lblWindowsStatus";
-            this.lblWindowsStatus.Size = new System.Drawing.Size(43, 13);
-            this.lblWindowsStatus.TabIndex = 31;
-            this.lblWindowsStatus.Text = "(Status)";
             // 
             // MainUIForm
             // 
