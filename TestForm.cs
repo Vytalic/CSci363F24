@@ -54,63 +54,143 @@ namespace RemoteVehicleManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Button alertsTab = mainForm.Controls.Find("alerts_tab", true).FirstOrDefault() as Button;
+            Button btnHome = mainForm.Controls.Find("Home_tab", true).FirstOrDefault() as Button;
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
             string alertMessage = $"{currentTime},Fuel is less than 20%,0";
 
+            
+
             File.AppendAllText("alertsData.txt", Environment.NewLine + alertMessage);
-            if (alertsTab != null)
+            if (btnHome != null)
             {
-                alertsTab.PerformClick();
+                btnHome.PerformClick();
+            }
+
+            Label lbl = mainForm.Controls.Find("label2", true).FirstOrDefault() as Label;
+            lbl.Text = "Fuel is less than 20%";
+
+            Panel alertPanel = mainForm.Controls.Find("panel4", true).FirstOrDefault() as Panel;
+            if (alertPanel != null)
+            {
+                alertPanel.Visible = true;
+
+            }
+
+            Panel sidepanel = mainForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = false;
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Button alertsTab = mainForm.Controls.Find("alerts_tab", true).FirstOrDefault() as Button;
+            Button btnHome = mainForm.Controls.Find("Home_tab", true).FirstOrDefault() as Button;
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
             string alertMessage = $"{currentTime},Battery is less than 20%,0";
 
             File.AppendAllText("alertsData.txt", Environment.NewLine + alertMessage);
-            if (alertsTab != null)
+
+            
+            if (btnHome != null)
             {
-                alertsTab.PerformClick();
+                btnHome.PerformClick();
             }
+
+            Label lbl = mainForm.Controls.Find("label2", true).FirstOrDefault() as Label;
+
+            lbl.Text = "Battery is less than 20%";
+
+            Panel alertPanel = mainForm.Controls.Find("panel4", true).FirstOrDefault() as Panel;
+            if (alertPanel != null)
+            {
+                alertPanel.Visible = true;
+
+            }
+
+            Panel sidepanel = mainForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = false;
+            }
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
-            Button alertsTab = mainForm.Controls.Find("alerts_tab", true).FirstOrDefault() as Button;
+            Button btnHome = mainForm.Controls.Find("Home_tab", true).FirstOrDefault() as Button;
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
             string alertMessage = $"{currentTime},Vehicle is outside the Geofence,0";
 
             File.AppendAllText("alertsData.txt", Environment.NewLine + alertMessage);
-            if (alertsTab != null)
+            
+
+            if (btnHome != null)
             {
-                alertsTab.PerformClick();
+                btnHome.PerformClick();
             }
+
+            Label lbl = mainForm.Controls.Find("label2", true).FirstOrDefault() as Label;
+
+            lbl.Text = "Vehicle is outside the Geofence";
+
+            Panel alertPanel = mainForm.Controls.Find("panel4", true).FirstOrDefault() as Panel;
+            if (alertPanel != null)
+            {
+                alertPanel.Visible = true;
+
+            }
+
+            Panel sidepanel = mainForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = false;
+            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Button alertsTab = mainForm.Controls.Find("alerts_tab", true).FirstOrDefault() as Button;
+            Button btnHome = mainForm.Controls.Find("Home_tab", true).FirstOrDefault() as Button;
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
             string alertMessage = $"{currentTime},Windows are still open,0";
 
             File.AppendAllText("alertsData.txt", Environment.NewLine + alertMessage);
-            if (alertsTab != null)
+
+
+            
+
+            if (btnHome != null)
             {
-                alertsTab.PerformClick();
+                btnHome.PerformClick();
             }
+
+            Label lbl = mainForm.Controls.Find("label2", true).FirstOrDefault() as Label;
+
+            lbl.Text = "Windows are still open";
+
+            Panel alertPanel = mainForm.Controls.Find("panel4", true).FirstOrDefault() as Panel;
+            if (alertPanel != null)
+            {
+                alertPanel.Visible = true;
+
+            }
+
+            Panel sidepanel = mainForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = false;
+            }
+
         }
     }
 }

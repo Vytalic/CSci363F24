@@ -88,7 +88,7 @@ namespace RemoteVehicleManager
                 {
                     control.ForeColor = Color.Black;
                 }
-                else if (control.Name != "panel3")
+                else if (control.Name != "panel3" && control.Name != "panel4")
                 {
                     control.BackColor = backgroundColor;
                     control.ForeColor = textColor;  
@@ -234,6 +234,31 @@ namespace RemoteVehicleManager
             {
                 btnAlerts.PerformClick();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Panel sidepanel = ParentForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = true;
+            }
+
+            Button btnAlerts = ParentForm.Controls.Find("Alerts_tab", true).FirstOrDefault() as Button;
+            if (btnAlerts != null)
+            {
+                btnAlerts.PerformClick();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Panel sidepanel = ParentForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = true;
+            }
+            panel4.Visible = false;
         }
     }
 }

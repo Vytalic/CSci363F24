@@ -55,27 +55,35 @@
             this.lblAlarmStatus = new System.Windows.Forms.Label();
             this.lblEngineStatus = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(426, 36);
+            this.panel1.Location = new System.Drawing.Point(639, 55);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(3, 385);
+            this.panel1.Size = new System.Drawing.Size(4, 592);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(126, 229);
+            this.panel2.Location = new System.Drawing.Point(189, 352);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 3);
+            this.panel2.Size = new System.Drawing.Size(900, 5);
             this.panel2.TabIndex = 1;
             // 
             // btnStartEngine
@@ -85,10 +93,11 @@
             this.btnStartEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartEngine.ImageIndex = 5;
             this.btnStartEngine.ImageList = this.imageList5;
-            this.btnStartEngine.Location = new System.Drawing.Point(126, 91);
+            this.btnStartEngine.Location = new System.Drawing.Point(189, 140);
+            this.btnStartEngine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartEngine.Name = "btnStartEngine";
-            this.btnStartEngine.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnStartEngine.Size = new System.Drawing.Size(105, 99);
+            this.btnStartEngine.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.btnStartEngine.Size = new System.Drawing.Size(158, 152);
             this.btnStartEngine.TabIndex = 2;
             this.btnStartEngine.Text = "Start";
             this.btnStartEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -115,10 +124,11 @@
             this.btnStopEngine.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStopEngine.ImageIndex = 0;
             this.btnStopEngine.ImageList = this.imageList6;
-            this.btnStopEngine.Location = new System.Drawing.Point(262, 91);
+            this.btnStopEngine.Location = new System.Drawing.Point(393, 140);
+            this.btnStopEngine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStopEngine.Name = "btnStopEngine";
-            this.btnStopEngine.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.btnStopEngine.Size = new System.Drawing.Size(105, 98);
+            this.btnStopEngine.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.btnStopEngine.Size = new System.Drawing.Size(158, 151);
             this.btnStopEngine.TabIndex = 3;
             this.btnStopEngine.Text = "Stop";
             this.btnStopEngine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -135,9 +145,10 @@
             // 
             this.lblEngine.AutoSize = true;
             this.lblEngine.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngine.Location = new System.Drawing.Point(116, 24);
+            this.lblEngine.Location = new System.Drawing.Point(174, 37);
+            this.lblEngine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEngine.Name = "lblEngine";
-            this.lblEngine.Size = new System.Drawing.Size(180, 55);
+            this.lblEngine.Size = new System.Drawing.Size(266, 82);
             this.lblEngine.TabIndex = 4;
             this.lblEngine.Text = "Engine";
             this.lblEngine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,10 +160,11 @@
             this.btnActivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActivateAlarm.ImageIndex = 0;
             this.btnActivateAlarm.ImageList = this.imageList5;
-            this.btnActivateAlarm.Location = new System.Drawing.Point(484, 91);
+            this.btnActivateAlarm.Location = new System.Drawing.Point(726, 140);
+            this.btnActivateAlarm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnActivateAlarm.Name = "btnActivateAlarm";
-            this.btnActivateAlarm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnActivateAlarm.Size = new System.Drawing.Size(105, 99);
+            this.btnActivateAlarm.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.btnActivateAlarm.Size = new System.Drawing.Size(158, 152);
             this.btnActivateAlarm.TabIndex = 5;
             this.btnActivateAlarm.Text = "Activate";
             this.btnActivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -167,10 +179,11 @@
             this.btnDeactivateAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivateAlarm.ImageIndex = 1;
             this.btnDeactivateAlarm.ImageList = this.imageList5;
-            this.btnDeactivateAlarm.Location = new System.Drawing.Point(610, 91);
+            this.btnDeactivateAlarm.Location = new System.Drawing.Point(915, 140);
+            this.btnDeactivateAlarm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeactivateAlarm.Name = "btnDeactivateAlarm";
-            this.btnDeactivateAlarm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnDeactivateAlarm.Size = new System.Drawing.Size(116, 99);
+            this.btnDeactivateAlarm.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.btnDeactivateAlarm.Size = new System.Drawing.Size(174, 152);
             this.btnDeactivateAlarm.TabIndex = 6;
             this.btnDeactivateAlarm.Text = "Deactivate";
             this.btnDeactivateAlarm.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -182,9 +195,10 @@
             // 
             this.lblAlarm.AutoSize = true;
             this.lblAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarm.Location = new System.Drawing.Point(474, 24);
+            this.lblAlarm.Location = new System.Drawing.Point(711, 37);
+            this.lblAlarm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAlarm.Name = "lblAlarm";
-            this.lblAlarm.Size = new System.Drawing.Size(154, 55);
+            this.lblAlarm.Size = new System.Drawing.Size(229, 82);
             this.lblAlarm.TabIndex = 7;
             this.lblAlarm.Text = "Alarm";
             this.lblAlarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -193,9 +207,10 @@
             // 
             this.lblDoors.AutoSize = true;
             this.lblDoors.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoors.Location = new System.Drawing.Point(116, 264);
+            this.lblDoors.Location = new System.Drawing.Point(174, 406);
+            this.lblDoors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoors.Name = "lblDoors";
-            this.lblDoors.Size = new System.Drawing.Size(158, 55);
+            this.lblDoors.Size = new System.Drawing.Size(232, 82);
             this.lblDoors.TabIndex = 8;
             this.lblDoors.Text = "Doors";
             this.lblDoors.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -207,10 +222,11 @@
             this.btnLockDoor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLockDoor.ImageIndex = 3;
             this.btnLockDoor.ImageList = this.imageList5;
-            this.btnLockDoor.Location = new System.Drawing.Point(126, 322);
+            this.btnLockDoor.Location = new System.Drawing.Point(189, 495);
+            this.btnLockDoor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLockDoor.Name = "btnLockDoor";
-            this.btnLockDoor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnLockDoor.Size = new System.Drawing.Size(105, 99);
+            this.btnLockDoor.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.btnLockDoor.Size = new System.Drawing.Size(158, 152);
             this.btnLockDoor.TabIndex = 9;
             this.btnLockDoor.Text = "Lock";
             this.btnLockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -225,10 +241,11 @@
             this.btnUnlockDoor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnUnlockDoor.ImageIndex = 4;
             this.btnUnlockDoor.ImageList = this.imageList5;
-            this.btnUnlockDoor.Location = new System.Drawing.Point(262, 322);
+            this.btnUnlockDoor.Location = new System.Drawing.Point(393, 495);
+            this.btnUnlockDoor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUnlockDoor.Name = "btnUnlockDoor";
-            this.btnUnlockDoor.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.btnUnlockDoor.Size = new System.Drawing.Size(105, 98);
+            this.btnUnlockDoor.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.btnUnlockDoor.Size = new System.Drawing.Size(158, 151);
             this.btnUnlockDoor.TabIndex = 10;
             this.btnUnlockDoor.Text = "Unlock";
             this.btnUnlockDoor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -242,10 +259,11 @@
             this.btnCloseWindows.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCloseWindows.ImageIndex = 6;
             this.btnCloseWindows.ImageList = this.imageList5;
-            this.btnCloseWindows.Location = new System.Drawing.Point(620, 322);
+            this.btnCloseWindows.Location = new System.Drawing.Point(930, 495);
+            this.btnCloseWindows.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCloseWindows.Name = "btnCloseWindows";
-            this.btnCloseWindows.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.btnCloseWindows.Size = new System.Drawing.Size(105, 98);
+            this.btnCloseWindows.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.btnCloseWindows.Size = new System.Drawing.Size(158, 151);
             this.btnCloseWindows.TabIndex = 13;
             this.btnCloseWindows.Text = "Close";
             this.btnCloseWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -259,10 +277,11 @@
             this.btnOpenWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenWindows.ImageIndex = 2;
             this.btnOpenWindows.ImageList = this.imageList5;
-            this.btnOpenWindows.Location = new System.Drawing.Point(484, 322);
+            this.btnOpenWindows.Location = new System.Drawing.Point(726, 495);
+            this.btnOpenWindows.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpenWindows.Name = "btnOpenWindows";
-            this.btnOpenWindows.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.btnOpenWindows.Size = new System.Drawing.Size(105, 99);
+            this.btnOpenWindows.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.btnOpenWindows.Size = new System.Drawing.Size(158, 152);
             this.btnOpenWindows.TabIndex = 12;
             this.btnOpenWindows.Text = "Open";
             this.btnOpenWindows.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -274,9 +293,10 @@
             // 
             this.lblWindows.AutoSize = true;
             this.lblWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindows.Location = new System.Drawing.Point(474, 264);
+            this.lblWindows.Location = new System.Drawing.Point(711, 406);
+            this.lblWindows.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWindows.Name = "lblWindows";
-            this.lblWindows.Size = new System.Drawing.Size(226, 55);
+            this.lblWindows.Size = new System.Drawing.Size(335, 82);
             this.lblWindows.TabIndex = 11;
             this.lblWindows.Text = "Windows";
             this.lblWindows.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -323,9 +343,10 @@
             // 
             this.lblWindowsStatus.AutoSize = true;
             this.lblWindowsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWindowsStatus.Location = new System.Drawing.Point(689, 283);
+            this.lblWindowsStatus.Location = new System.Drawing.Point(1034, 435);
+            this.lblWindowsStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWindowsStatus.Name = "lblWindowsStatus";
-            this.lblWindowsStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblWindowsStatus.Size = new System.Drawing.Size(95, 29);
             this.lblWindowsStatus.TabIndex = 35;
             this.lblWindowsStatus.Text = "(Status)";
             this.lblWindowsStatus.Visible = false;
@@ -334,9 +355,10 @@
             // 
             this.lblDoorsStatus.AutoSize = true;
             this.lblDoorsStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoorsStatus.Location = new System.Drawing.Point(261, 283);
+            this.lblDoorsStatus.Location = new System.Drawing.Point(392, 435);
+            this.lblDoorsStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoorsStatus.Name = "lblDoorsStatus";
-            this.lblDoorsStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblDoorsStatus.Size = new System.Drawing.Size(95, 29);
             this.lblDoorsStatus.TabIndex = 34;
             this.lblDoorsStatus.Text = "(Status)";
             this.lblDoorsStatus.Visible = false;
@@ -345,9 +367,10 @@
             // 
             this.lblAlarmStatus.AutoSize = true;
             this.lblAlarmStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlarmStatus.Location = new System.Drawing.Point(619, 43);
+            this.lblAlarmStatus.Location = new System.Drawing.Point(928, 66);
+            this.lblAlarmStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAlarmStatus.Name = "lblAlarmStatus";
-            this.lblAlarmStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblAlarmStatus.Size = new System.Drawing.Size(95, 29);
             this.lblAlarmStatus.TabIndex = 33;
             this.lblAlarmStatus.Text = "(Status)";
             this.lblAlarmStatus.Visible = false;
@@ -356,9 +379,10 @@
             // 
             this.lblEngineStatus.AutoSize = true;
             this.lblEngineStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEngineStatus.Location = new System.Drawing.Point(284, 43);
+            this.lblEngineStatus.Location = new System.Drawing.Point(426, 66);
+            this.lblEngineStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEngineStatus.Name = "lblEngineStatus";
-            this.lblEngineStatus.Size = new System.Drawing.Size(66, 20);
+            this.lblEngineStatus.Size = new System.Drawing.Size(95, 29);
             this.lblEngineStatus.TabIndex = 32;
             this.lblEngineStatus.Text = "(Status)";
             this.lblEngineStatus.Visible = false;
@@ -371,63 +395,134 @@
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(60, 24);
+            this.panel3.Location = new System.Drawing.Point(90, 37);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(745, 410);
+            this.panel3.Size = new System.Drawing.Size(1116, 630);
             this.panel3.TabIndex = 36;
             this.panel3.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(723, 62);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "/////////////// Alert! \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(164, 166);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(427, 45);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Vehicle Break-in Detected!";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(432, 313);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Dismiss Alert";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightGreen;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(203, 313);
+            this.button2.Location = new System.Drawing.Point(304, 482);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 37);
+            this.button2.Size = new System.Drawing.Size(201, 57);
             this.button2.TabIndex = 4;
             this.button2.Text = "Check Alerts";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(648, 482);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 57);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Dismiss Alert";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(246, 255);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(648, 68);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Vehicle Break-in Detected!";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1074, 92);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "/////////////// Alert! \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Khaki;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(90, 37);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1116, 630);
+            this.panel4.TabIndex = 37;
+            this.panel4.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightGreen;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(279, 482);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(201, 57);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Check Alerts";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.LightCoral;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(648, 482);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(201, 57);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Dismiss Alert";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(267, 258);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 68);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "label2";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1029, 92);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "//////////// Warning! \\\\\\\\\\\\\\\\\\\\\\\\";
+            // 
             // HomeControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblWindowsStatus);
             this.Controls.Add(this.lblDoorsStatus);
@@ -447,10 +542,13 @@
             this.Controls.Add(this.btnStartEngine);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HomeControl";
-            this.Size = new System.Drawing.Size(853, 457);
+            this.Size = new System.Drawing.Size(1280, 703);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +585,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }
