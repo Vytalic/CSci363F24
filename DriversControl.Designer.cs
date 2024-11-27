@@ -55,7 +55,7 @@
             this.btnAddDriver.BackColor = System.Drawing.Color.LightGray;
             this.btnAddDriver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddDriver.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDriver.Location = new System.Drawing.Point(3, 3);
+            this.btnAddDriver.Location = new System.Drawing.Point(125, 23);
             this.btnAddDriver.Name = "btnAddDriver";
             this.btnAddDriver.Size = new System.Drawing.Size(115, 29);
             this.btnAddDriver.TabIndex = 16;

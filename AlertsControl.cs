@@ -37,49 +37,6 @@ namespace RemoteVehicleManager
             Color backgroundColor = SettingsManager.Theme == "Dark" ? Color.FromArgb(40, 40, 40) : Color.DarkGray;
             Color textColor = SettingsManager.Theme == "Dark" ? Color.White : Color.Black;
           
-
-            // Apply font size (default is medium = 12)
-            float fontSize = 12;
-            switch (SettingsManager.FontSize.ToLower())
-            {
-                case "small":
-                    fontSize = 10;
-                    break;
-                case "medium":
-                    fontSize = 12;
-                    break;
-                case "large":
-                    fontSize = 14;
-                    break;
-                default:
-                    fontSize = 12;
-                    break;
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is Label label)
-                {
-                    if (label.Name == "lblAlerts")
-                    {
-                        label.Font = new Font(label.Font.FontFamily, (fontSize + 24));
-                    }
-                    else
-                    {
-                        label.Font = new Font(label.Font.FontFamily, fontSize);
-
-                    }
-                }
-                else if (control is FlowLayoutPanel flp)
-                {
-                    // Apply font size to combobox
-                    if (flp.Name == "flowLayoutPanel1")
-                    {
-                        flp.Font = new Font(flp.Font.FontFamily, fontSize);
-                    }
-                }
-            }
-
             // Apply Dark or Light theme
             // Update UserControl background
             this.BackColor = backgroundColor;
@@ -108,8 +65,14 @@ namespace RemoteVehicleManager
                 }
                 else
                 {
+                    
                     control.BackColor = backgroundColor;
                 }
+                if (control.Name == "btnClearAlerts")
+                    {
+                        control.BackColor = Color.LightCoral;
+                        control.ForeColor = Color.Black;
+                    }
             }
 
             // Update dynamically created rows in FlowLayoutPanel
@@ -121,8 +84,26 @@ namespace RemoteVehicleManager
 
                     foreach (Control innerControl in rowPanel.Controls)
                     {
-                        innerControl.BackColor = backgroundColor;
-                        innerControl.ForeColor = textColor;
+                        if (innerControl is PictureBox pictureBox)
+                        {
+                            pictureBox.BackColor = backgroundColor;
+                            innerControl.ForeColor = textColor;
+                        }
+                        else
+                        {
+                            innerControl.ForeColor = textColor;
+                            if (SettingsManager.Theme == "Light")
+                            {
+                                innerControl.BackColor = Color.LightGray;
+                            }
+                            else
+                            {
+                                innerControl.BackColor = Color.LightGray;
+                                innerControl.ForeColor = Color.Black;
+
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -136,6 +117,9 @@ namespace RemoteVehicleManager
 
             // Clear existing controls in the panel
             flowLayoutPanel1.Controls.Clear();
+
+            
+        
 
             foreach (var alert in alerts)
             {
@@ -181,7 +165,7 @@ namespace RemoteVehicleManager
                     Text = alert.Description,
                     AutoSize = false,
                     Height = 40,
-                    Width = 300,
+                    Width = 350,
                     TextAlign = ContentAlignment.MiddleCenter,
                     Margin = new Padding(5),
                     Font = new Font("Microsoft Sans Serif", 14, FontStyle.Regular),
@@ -189,6 +173,9 @@ namespace RemoteVehicleManager
                     ForeColor = textColor,
                     BorderStyle = BorderStyle.FixedSingle
                 };
+
+
+
 
                 // Add controls to the row panel
                 rowPanel.Controls.Add(pictureBox);
@@ -202,6 +189,72 @@ namespace RemoteVehicleManager
 
                 // Add the row panel to the FlowLayoutPanel
                 flowLayoutPanel1.Controls.Add(rowPanel);
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = backgroundColor;
+                control.ForeColor = textColor;
+
+                if (control is FlowLayoutPanel flp)
+                {
+                    flp.BackColor = backgroundColor;
+                }
+                else if (control is ComboBox)
+                {
+                    if (SettingsManager.Theme == "Dark")
+                    {
+                        control.BackColor = Color.Black;
+                    }
+                    else
+                    {
+                        control.BackColor = Color.White;
+                    }
+
+                }
+                else
+                {
+
+                    control.BackColor = backgroundColor;
+                }
+                if (control.Name == "btnClearAlerts")
+                {
+                    control.BackColor = Color.LightCoral;
+                    control.ForeColor = Color.Black;
+                }
+            }
+
+            // Update dynamically created rows in FlowLayoutPanel
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Panel rowPanel)
+                {
+                    rowPanel.BackColor = backgroundColor;
+
+                    foreach (Control innerControl in rowPanel.Controls)
+                    {
+                        if (innerControl is PictureBox pictureBox)
+                        {
+                            pictureBox.BackColor = backgroundColor;
+                            innerControl.ForeColor = textColor;
+                        }
+                        else
+                        {
+                            innerControl.ForeColor = textColor;
+                            if (SettingsManager.Theme == "Light")
+                            {
+                                innerControl.BackColor = Color.LightGray;
+                            }
+                            else
+                            {
+                                innerControl.BackColor = Color.LightGray;
+                                innerControl.ForeColor = Color.Black;
+
+                            }
+                        }
+
+                    }
+                }
             }
         }
 
@@ -271,6 +324,13 @@ namespace RemoteVehicleManager
                 alerts.Sort((a, b) => a.DateTime.CompareTo(b.DateTime));
             }
 
+            DisplayAlerts(alerts);
+        }
+
+        private void btnClearAlerts_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText("alertsData.txt", "");
+            var alerts = LoadAlerts("alertsData.txt");
             DisplayAlerts(alerts);
         }
     }

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using RemoteVehicleManager;
 using static RemoteVehicleManager.VehiclesControl;
 using System.Windows.Forms.VisualStyles;
+using System.Drawing.Text;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RemoteVehicleManager
 {
@@ -44,6 +46,8 @@ namespace RemoteVehicleManager
             ApplySettings();
             ConfigureTableLayoutPanel();
             LoadVehiclesData("vehiclesData.txt");
+            parentForm.sidepanelActivate();
+            parentForm.disableButton1();
 
             // Reset initial state
             btnEditVehicles.Text = "Edit Vehicles";
@@ -57,6 +61,14 @@ namespace RemoteVehicleManager
             this.HorizontalScroll.Enabled = false;
             this.HorizontalScroll.Visible = false;
 
+            if (parentForm.AVName == "Active Vehicle")
+            {
+                btnEditVehicles.Visible = false;
+            }
+            else
+            {
+                btnEditVehicles.Visible = true;
+            }
         }
 
         public void ApplySettings()
@@ -78,7 +90,7 @@ namespace RemoteVehicleManager
 
             foreach (Control control in this.Controls)
             {
-                if (control.Name != "btnEditVehicles" && control.Name != "btnSaveChanges" && control.Name != "btnAddVehicle")
+                if (control.Name != "btnEditVehicles" && control.Name != "btnSaveChanges" && control.Name != "btnAddVehicle" && control.Text != "")
                 {
                     control.BackColor = backgroundColor;
                     control.ForeColor = textColor;
@@ -509,7 +521,8 @@ namespace RemoteVehicleManager
                 {
                     Text = labelText,
                     AutoSize = true,
-                    Font = new Font("Arial", 10, FontStyle.Bold)
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    ForeColor = Color.Black
                 };
 
                 container.Controls.Add(label);
@@ -573,7 +586,7 @@ namespace RemoteVehicleManager
                 Width = 100,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbFuelType.Items.AddRange(new string[] { "Gas", "Diesel", "Electric" });
+            cmbFuelType.Items.AddRange(new string[] { "Petro-fuel", "Hybrid", "Electric" });
             cmbFuelType.SelectedIndex = 0;
 
             // Add labeled input fields to the panel
@@ -588,6 +601,7 @@ namespace RemoteVehicleManager
             {
                 Text = "Apply",
                 BackColor = Color.LightGreen,
+                ForeColor = Color.Black,
                 Height = 30,
                 Width = 80
             };
@@ -736,6 +750,22 @@ namespace RemoteVehicleManager
                 // Update MainUIForm's properties
                 parentForm.AVName = $"{vehicleName}";
                 parentForm.AVType = $"{vehicleDetails}";
+                
+                // Store Fueltype of Active Vehicle
+                string batteryorFuel = fuelType.ToString();
+
+                // Store fueltype in file
+                try
+                {
+                    // Create or overwrite the file with the fuel type content
+                    File.WriteAllText("fuelType.txt", fuelType);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while writing to the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
 
                 // Update the clicked button's appearance
                 var button = s as Button;
@@ -748,7 +778,15 @@ namespace RemoteVehicleManager
 
                 // Show a confirmation message
                 MessageBox.Show($"Active Vehicle set to: {vehicleName}", "Action Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                
+
+                //parentForm.sidepanelActivate();
+                //parentForm.disableButton1();
+                btnEditVehicles.Visible = true;
             };
+
+            
 
 
 
@@ -908,6 +946,7 @@ namespace RemoteVehicleManager
                 {
                     Text = "Apply",
                     BackColor = Color.LightGreen,
+                    ForeColor = Color.Black,
                     Height = 30,
                     Width = 80,
                     Anchor = AnchorStyles.Bottom, //| AnchorStyles.Right,
@@ -1102,6 +1141,11 @@ namespace RemoteVehicleManager
                 tableLayoutPanel1.RowStyles[i] = new RowStyle(SizeType.AutoSize);
             }
             tableLayoutPanel1.PerformLayout();
+        }
+
+        public void labelFuelType()
+        {
+            
         }
 
     }

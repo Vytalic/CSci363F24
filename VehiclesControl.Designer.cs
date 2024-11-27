@@ -83,6 +83,7 @@
             this.btnEditVehicles.TabIndex = 4;
             this.btnEditVehicles.Text = "Edit Vehicles";
             this.btnEditVehicles.UseVisualStyleBackColor = false;
+            this.btnEditVehicles.Visible = false;
             this.btnEditVehicles.Click += new System.EventHandler(this.btnEditVehicles_Click);
             // 
             // btnSaveChanges

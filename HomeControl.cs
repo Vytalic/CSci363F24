@@ -88,11 +88,13 @@ namespace RemoteVehicleManager
                 {
                     control.ForeColor = Color.Black;
                 }
-                else
+                else if (control.Name != "panel3")
                 {
                     control.BackColor = backgroundColor;
                     control.ForeColor = textColor;  
                 }
+
+                
 
             }
 
@@ -207,6 +209,31 @@ namespace RemoteVehicleManager
 
             // Show popup message
             MessageBox.Show("Windows closed successfully!", "Windows Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Panel sidepanel = ParentForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = true;
+            }
+            panel3.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Panel sidepanel = ParentForm.Controls.Find("SidePanel", true).FirstOrDefault() as Panel;
+            if (sidepanel != null)
+            {
+                sidepanel.Enabled = true;
+            }
+
+            Button btnAlerts = ParentForm.Controls.Find("Alerts_tab", true).FirstOrDefault() as Button;
+            if (btnAlerts != null)
+            {
+                btnAlerts.PerformClick();
+            }
         }
     }
 }

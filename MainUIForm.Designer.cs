@@ -78,6 +78,7 @@
             this.VerticalBar = new System.Windows.Forms.Splitter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drkIcons = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -344,6 +345,7 @@
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.TopPanel.Controls.Add(this.button1);
             this.TopPanel.Controls.Add(this.lblOutsideT);
             this.TopPanel.Controls.Add(this.lblInsideT);
             this.TopPanel.Controls.Add(this.lblOutsideTemp);
@@ -453,7 +455,7 @@
             // 
             this.lblCurrentDate.AutoSize = true;
             this.lblCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentDate.Location = new System.Drawing.Point(311, 8);
+            this.lblCurrentDate.Location = new System.Drawing.Point(315, 8);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Size = new System.Drawing.Size(148, 29);
             this.lblCurrentDate.TabIndex = 0;
@@ -762,6 +764,19 @@
             this.drkIcons.Images.SetKeyName(5, "drktime-past.png");
             this.drkIcons.Images.SetKeyName(6, "drkuser.png");
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(593, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 78);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Click here to Select a Vehicle!";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -841,6 +856,7 @@
         private System.Windows.Forms.Label lblTemp;
         private System.Windows.Forms.Label lblAVType;
         private System.Windows.Forms.Label lblAVName;
+        private System.Windows.Forms.Button button1;
     }
 }
 

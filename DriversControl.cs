@@ -133,6 +133,11 @@ namespace RemoteVehicleManager
                 Margin = new Padding(10),
                 Visible = false
             };
+            
+            if (SettingsManager.Theme == "Dark")
+            {
+                checkBox.Image = Properties.Resources.unchecked_white;
+            }
 
             // Label for the second column (driver name)
             var label = new Label
@@ -179,7 +184,15 @@ namespace RemoteVehicleManager
             if (!isChecked)
             {
                 // Update to checked state
-                checkBox.Image = Properties.Resources.check_dark;
+                if (SettingsManager.Theme == "Light")
+                {
+                    checkBox.Image = Properties.Resources.check_dark;
+                }
+                else
+                {
+                    checkBox.Image = Properties.Resources.checked_white;
+                }
+                
                 checkBox.Tag = true;
 
                 // Create dynamic buttons when checked
@@ -188,7 +201,15 @@ namespace RemoteVehicleManager
             else
             {
                 // Update to unchecked state
-                checkBox.Image = Properties.Resources.unchecked_dark;
+                if (SettingsManager.Theme == "Light")
+                {
+                    checkBox.Image = Properties.Resources.unchecked_dark;
+                }
+                else
+                {
+                    checkBox.Image = Properties.Resources.unchecked_white;
+                }
+                    
                 checkBox.Tag = false;
 
                 // Remove dynamic buttons when unchecked
@@ -676,7 +697,7 @@ namespace RemoteVehicleManager
             // Add TextBox for editable input
             var textBox = new TextBox
             {
-                Text = "Enter first and last name",
+                Text = "Enter name",
                 ForeColor = Color.Gray,
                 Width = 200,
                 Height = 40,
@@ -688,7 +709,7 @@ namespace RemoteVehicleManager
             // focus and placeholder behavior
             textBox.GotFocus += (s, a) =>
             {
-                if (textBox.Text == "Enter first and last name")
+                if (textBox.Text == "Enter name")
                 {
                     textBox.Text = "";
                     textBox.ForeColor = Color.Black;
@@ -700,7 +721,7 @@ namespace RemoteVehicleManager
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    textBox.Text = "Enter first and last name";
+                    textBox.Text = "Enter name";
                     textBox.ForeColor = Color.Gray;
                     textBox.Font = new Font("Arial", 14, FontStyle.Italic);
                 }
@@ -727,7 +748,7 @@ namespace RemoteVehicleManager
 
             saveButton.Click += (s, a) =>
             {
-                if (!string.IsNullOrWhiteSpace(textBox.Text) && textBox.Text != "Enter first and last name")
+                if (!string.IsNullOrWhiteSpace(textBox.Text) && textBox.Text != "Enter name")
                 {
                     var parts = textBox.Text.Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     if (parts.Length >= 2)

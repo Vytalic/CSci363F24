@@ -18,6 +18,8 @@ namespace RemoteVehicleManager
         private Dictionary<ComboBox, string> originalSettings;
         private Dictionary<ComboBox, bool> unsavedStatus;
         private int unsavedChangesCount;
+        private Timer updateTimer;
+        private int progressValue = 0;
 
 
 
@@ -69,6 +71,15 @@ namespace RemoteVehicleManager
 
             // Initialize settings
             InitializeSettings();
+
+            updateTimer = new Timer();
+            updateTimer.Interval = 50; // Update every 50ms
+            updateTimer.Tick += UpdateTimer_Tick;
+
+            progressBarUpdate.Minimum = 0;
+            progressBarUpdate.Maximum = 100;
+            progressBarUpdate.Value = 0;
+            //progressBarUpdate.Visible = false;
         }
 
         public event EventHandler SettingsUpdated;
@@ -230,7 +241,7 @@ namespace RemoteVehicleManager
             // Apply to all other controls
             foreach (Control control in this.Controls)
             {
-                if (control.Name != "btnSaveChanges" && control.Name != "btnCancel")
+                if (control.Text != "Ok")
                 {
                     control.BackColor = backgroundColor;
                     control.ForeColor = textColor;
@@ -243,8 +254,16 @@ namespace RemoteVehicleManager
                         control.BackColor = Color.White;
                     }
                 }
+                else if (control.Text == "Ok")
+                {
+                    control.ForeColor = Color.Black;
+                    control.BackColor = Color.Green;
+                }
 
             }
+
+            button1.ForeColor = Color.Black;
+            button1.BackColor = Color.Aqua;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -303,5 +322,46 @@ namespace RemoteVehicleManager
 
 
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            // Disable the button to prevent multiple clicks during the update
+            btnUpdate.Visible = false;
+
+            progressValue = 0;
+            progressBarUpdate.Value = 0;
+            updateTimer.Start();
+
+
+            
+        }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            progressValue += 5;
+
+            if (progressValue <= 100)
+            {
+                progressBarUpdate.Value = progressValue;
+            }
+            else
+            {
+                updateTimer.Stop();
+
+
+                label1.Text = "Application updated successfully!";
+                label1.Location = new Point(label1.Location.X - 175, label1.Location.Y);
+
+                File.AppendAllText("historyData.txt", $"{DateTime.Now:G},\"Application updated to v2.4.0\"\n");
+                lblVersionNum.Text = "2.4.0";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Re-enable the button after update
+            btnUpdate.Visible = true;
+            panel1.Visible= false;
+        }
     }
 }

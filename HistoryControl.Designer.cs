@@ -30,7 +30,8 @@
         {
             this.lblHistory = new System.Windows.Forms.Label();
             this.lblShowFrom = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxShowFrom = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lblHistory
@@ -46,35 +47,45 @@
             // lblShowFrom
             // 
             this.lblShowFrom.AutoSize = true;
-            this.lblShowFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowFrom.Location = new System.Drawing.Point(60, 85);
+            this.lblShowFrom.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowFrom.Location = new System.Drawing.Point(47, 22);
             this.lblShowFrom.Name = "lblShowFrom";
-            this.lblShowFrom.Size = new System.Drawing.Size(94, 20);
+            this.lblShowFrom.Size = new System.Drawing.Size(99, 21);
             this.lblShowFrom.TabIndex = 1;
             this.lblShowFrom.Text = "Show From:";
             // 
-            // comboBox1
+            // comboBoxShowFrom
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxShowFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxShowFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxShowFrom.FormattingEnabled = true;
+            this.comboBoxShowFrom.Items.AddRange(new object[] {
             "Today",
             "Last Week",
             "Last Month",
             "Last Reset",
             "Installation Date"});
-            this.comboBox1.Location = new System.Drawing.Point(160, 84);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 28);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxShowFrom.Location = new System.Drawing.Point(147, 19);
+            this.comboBoxShowFrom.Name = "comboBoxShowFrom";
+            this.comboBoxShowFrom.Size = new System.Drawing.Size(149, 28);
+            this.comboBoxShowFrom.TabIndex = 2;
+            this.comboBoxShowFrom.SelectedIndexChanged += new System.EventHandler(this.comboBoxShowFrom_SelectedIndexChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(82, 99);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(651, 336);
+            this.flowLayoutPanel1.TabIndex = 12;
             // 
             // HistoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.comboBoxShowFrom);
             this.Controls.Add(this.lblShowFrom);
             this.Controls.Add(this.lblHistory);
             this.Name = "HistoryControl";
@@ -88,6 +99,7 @@
 
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.Label lblShowFrom;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxShowFrom;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

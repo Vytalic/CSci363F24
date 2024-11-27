@@ -169,6 +169,7 @@
     <Content Include="Resources\drksettings.png" />
     <None Include="Resources\drktimepast.png" />
     <Content Include="Resources\drkuser.png" />
+    <Content Include="Resources\gpsimg.png" />
     <Content Include="Resources\house-chimney.png" />
     <Content Include="Resources\lock-open-alt.png" />
     <Content Include="Resources\lock.png" />

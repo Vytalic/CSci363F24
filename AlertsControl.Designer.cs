@@ -37,6 +37,7 @@
             this.lblWhat = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnClearAlerts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAlerts
@@ -52,10 +53,10 @@
             // lblSortBy
             // 
             this.lblSortBy.AutoSize = true;
-            this.lblSortBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSortBy.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSortBy.Location = new System.Drawing.Point(72, 22);
             this.lblSortBy.Name = "lblSortBy";
-            this.lblSortBy.Size = new System.Drawing.Size(65, 20);
+            this.lblSortBy.Size = new System.Drawing.Size(68, 21);
             this.lblSortBy.TabIndex = 1;
             this.lblSortBy.Text = "Sort By:";
             // 
@@ -107,14 +108,28 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(75, 128);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 304);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(651, 304);
             this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // btnClearAlerts
+            // 
+            this.btnClearAlerts.BackColor = System.Drawing.Color.LightCoral;
+            this.btnClearAlerts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearAlerts.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearAlerts.Location = new System.Drawing.Point(732, 409);
+            this.btnClearAlerts.Name = "btnClearAlerts";
+            this.btnClearAlerts.Size = new System.Drawing.Size(109, 35);
+            this.btnClearAlerts.TabIndex = 10;
+            this.btnClearAlerts.Text = "Clear Alerts";
+            this.btnClearAlerts.UseVisualStyleBackColor = false;
+            this.btnClearAlerts.Click += new System.EventHandler(this.btnClearAlerts_Click);
             // 
             // AlertsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.Controls.Add(this.btnClearAlerts);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblWhat);
             this.Controls.Add(this.lblWhen);
@@ -137,5 +152,6 @@
         private System.Windows.Forms.Label lblWhat;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnClearAlerts;
     }
 }
