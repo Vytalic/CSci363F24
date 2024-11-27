@@ -284,7 +284,32 @@ namespace RemoteVehicleManager
                 }
                 else
                 {
-                    MessageBox.Show($"The file {"vehiclesData.txt"} does not exist.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                    // Create the file with default data if it doesn't exist
+                    File.WriteAllText("vehiclesData.txt",
+                        "Vehicle 1, 2023 Toyota Corolla, Hybrid\n" +
+                        "Vehicle 2, 2019 Ford F-150, Petro-fuel\n" +
+                        "Vehicle 3, 2022 Tesla Model 3, Electric");
+
+                    // Only write from first line
+                    foreach (var line in File.ReadLines("vehiclesData.txt"))
+                    {
+                        string[] parts = line.Split(',');
+
+                        // Remove  spaces from last part
+                        string part0 = parts[0];
+                        string part1 = parts[1];
+                        string part2 = parts[2].Trim().Replace(" ", "");
+
+
+                        lblAVName.Text = part0;
+                        lblAVType.Text = part1;
+
+                        File.WriteAllText("fuelType.txt", part2);
+
+                        break;
+                    }
+
                 }
             }
             catch (Exception ex)

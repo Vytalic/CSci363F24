@@ -351,6 +351,7 @@ namespace RemoteVehicleManager
 
                 label1.Text = "Application updated successfully!";
                 label1.Location = new Point(label1.Location.X - 175, label1.Location.Y);
+                button1.Visible = true;
 
                 File.AppendAllText("historyData.txt", $"{DateTime.Now:G},\"Application updated to v2.4.0\"\n");
                 lblVersionNum.Text = "2.4.0";

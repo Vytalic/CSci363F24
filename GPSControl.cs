@@ -221,25 +221,11 @@ namespace RemoteVehicleManager
 
         public static string ReadFuelTypeFromFile()
         {
-            try
-            {
-                // Check if the file exists before attempting to read
-                if (File.Exists("fuelType.txt"))
-                {
-                    string fuelType = File.ReadAllText("fuelType.txt");
-                    return fuelType;
-                }
-                else
-                {
-                    MessageBox.Show($"The file {"fuelType.txt"} does not exist.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return string.Empty;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while reading the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return string.Empty;
-            }
+
+            string fuelType = File.ReadAllText("fuelType.txt");
+            return fuelType;
+
+
         }
 
     }
